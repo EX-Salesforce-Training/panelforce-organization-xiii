@@ -2,9 +2,6 @@
 
 # P3-Requirements
 
-Create a community
-Use lightning to create a custom UI
-
 ## CORE
 *	Conduct a panel and submit a new panel entry
   * Create a new panel sheet for an associate
