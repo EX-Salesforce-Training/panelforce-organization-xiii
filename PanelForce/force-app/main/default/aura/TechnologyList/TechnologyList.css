@@ -1,0 +1,21 @@
+.THIS {
+}
+
+.THIS .slds-col input{
+    background-color: aqua;
+}
+
+.THIS .checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.THIS .topicName{
+    padding-left: 100px;
+}
+
+.THIS .flex{
+    display:flex;
+}
