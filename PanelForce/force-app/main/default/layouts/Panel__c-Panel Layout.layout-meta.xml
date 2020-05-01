@@ -20,7 +20,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Topics_to_be_Repaneld__c</field>
+                <field>Topics_to_be_Repaneled__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Topics_to_be_Repaneld__c</fullName>
+    <fullName>Topics_to_be_Repaneled__c</fullName>
     <externalId>false</externalId>
-    <label>Topics to be Repaneld</label>
+    <label>Topics to be Repaneled</label>
     <summaryFilterItems>
         <field>Topic__c.Repanel__c</field>
         <operation>equals</operation>
