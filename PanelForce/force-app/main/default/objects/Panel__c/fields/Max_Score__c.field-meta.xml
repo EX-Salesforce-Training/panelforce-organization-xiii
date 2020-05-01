@@ -3,8 +3,14 @@
     <fullName>Max_Score__c</fullName>
     <externalId>false</externalId>
     <label>Max Score</label>
+<<<<<<< HEAD
     <summaryForeignKey>Topic__c.Panel__c</summaryForeignKey>
     <summaryOperation>count</summaryOperation>
+=======
+    <summarizedField>Topic__c.Max_Score__c</summarizedField>
+    <summaryForeignKey>Topic__c.Panel__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+>>>>>>> akeemsbranch
     <trackTrending>false</trackTrending>
     <type>Summary</type>
 </CustomField>

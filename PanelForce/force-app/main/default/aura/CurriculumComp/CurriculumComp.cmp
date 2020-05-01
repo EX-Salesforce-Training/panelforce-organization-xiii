@@ -1,0 +1,42 @@
+<aura:component >
+    
+    <aura:attribute name="options" type="List" default="[
+    {'label': '', 'value': 'checked'}]"/>
+    <aura:attribute name="value" type="List" default="option1"/>
+    <aura:attribute name="technologyInput" type="String"/>
+
+    <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
+
+    <lightning:layout horizontalAlign="center" class="flex">
+            <div class ="containerLeft">
+                <div class="firstSec">
+                    <div class="flexRow">
+                        <div class="centerTitle">Technology</div>
+                        <div class="centerTechInput">
+                            <lightning:input value="{!v.technologyInput}"></lightning:input>
+                        </div>
+
+                    </div>
+
+                </div>
+                    
+                <div class="secondSec">
+
+                
+                    <div class="button">
+                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium"/>
+                    
+                    </div>
+                </div>
+
+            </div>
+
+            <div class ="containerRight">
+                <c:TechnologyList/>
+            </div>
+                        
+
+        </lightning:layout>
+    
+    
+</aura:component>
