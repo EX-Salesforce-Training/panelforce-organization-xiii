@@ -5,6 +5,8 @@
     <aura:attribute name="value" type="List" default="option1"/>
     <aura:attribute name="technologyInput" type="String"/>
 
+    <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
+
     <lightning:layout horizontalAlign="center" class="flex">
             <div class ="containerLeft">
                 <div class="firstSec">
@@ -13,11 +15,7 @@
                         <div class="centerTechInput">
                             <lightning:input value="{!v.technologyInput}"></lightning:input>
                         </div>
-                        <div class="resizeButton">
-                                
-                            <lightning:buttonIcon iconName="utility:add" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.onAddClick}"/>
-                    
-                        </div>
+
                     </div>
 
                 </div>

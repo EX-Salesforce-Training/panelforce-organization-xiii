@@ -9,14 +9,16 @@
 		var selectedTopics = [];
 		var x;
 
-		for (x of topicList) {
-			//console.log(x["Name"]);		
-			//console.log(component.find(x["Name"]).checked);	
+		for (x of topicList) {	
 			var checkbox = document.getElementById(x.Name);
-			console.log(checkbox.checked);
+
+			if(checkbox.checked){
+				selectedTopics.push(x);
+			}
 		  }
 		
-		cmpEvent.setParams({"topics" : topicList});
+		console.log(x.lenght);
+		cmpEvent.setParams({"topics" : selectedTopics});
 		cmpEvent.fire();
 	}
 })
