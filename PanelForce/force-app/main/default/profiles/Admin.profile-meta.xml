@@ -86,7 +86,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Panel__c.Topics_to_be_Repaneld__c</field>
+        <field>Panel__c.Topics_to_be_Repaneled__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
