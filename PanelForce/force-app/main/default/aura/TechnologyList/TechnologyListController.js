@@ -17,13 +17,8 @@
 			}
 		  }
 		
-<<<<<<< HEAD
 		cmpEvent.setParams({"topics" : selectedTopics});
-
-=======
-		console.log(x.lenght);
-		cmpEvent.setParams({"topics" : selectedTopics});
->>>>>>> akeemsbranch
+		console.log(x.length);
 		cmpEvent.fire();
 	}
 })

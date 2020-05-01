@@ -1,11 +1,18 @@
-<aura:component >
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="CurriculumController">
     
     <aura:attribute name="options" type="List" default="[
     {'label': '', 'value': 'checked'}]"/>
     <aura:attribute name="value" type="List" default="option1"/>
     <aura:attribute name="technologyInput" type="String"/>
+    <aura:attribute name="cur" type="Curriculum__c" default="{'sObjectType':'Curriculum__c', 
+                                                               'Name':'',
+                                                               'Topics__c':'',
+                                                               'Max_Score__c':''}"/>
 
     <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
+
+    <aura:attribute name="topic" type="Topic__c" default="{'sObjectType':'Topic__c', 
+                                                            'Name':''}"/>
 
     <lightning:layout horizontalAlign="center" class="flex">
             <div class ="containerLeft">
