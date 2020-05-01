@@ -23,6 +23,7 @@
         action.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
                 //component.set("v.technologyList", response.getReturnValue());
+                
             }
             else{
                 console.log("Error " + response.getState());
