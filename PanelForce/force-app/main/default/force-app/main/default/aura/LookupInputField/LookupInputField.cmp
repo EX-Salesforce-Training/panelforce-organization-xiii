@@ -1,3 +1,0 @@
-<aura:component>
-    <aura:attribute name="type" type="string"/>
-</aura:component>	
