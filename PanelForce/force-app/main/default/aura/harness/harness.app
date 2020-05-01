@@ -1,3 +1,3 @@
 <aura:application >
-    <c:FilterPanelResultsByName/>
+    <c:DetailedPanelResults/>
 </aura:application>

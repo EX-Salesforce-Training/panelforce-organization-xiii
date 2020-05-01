@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="DetailedPanelResultsController">
+    <aura:attribute name="PanelInfo" type="Panel__c"/>
+    <aura:attribute name="TopicsRecorded" type="Topic__c[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <div>
+        Name: {!v.PanelInfo.Contact__r.Name}
+        Topic 1 Name: {!v.TopicsRecorded[0].Name}
+    </div>
+	
+</aura:component>
