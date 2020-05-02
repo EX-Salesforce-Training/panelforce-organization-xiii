@@ -10,7 +10,24 @@ public class DetailedPanelResultsController {
     }
     @AuraEnabled
     public static List<Topic__c> GetTopics(String Name){
+        //integer count = 0;
+        //integer Max_Score = 0;
+        //integer final_score = 0;
         List<Topic__c> topics = [SELECT Name, Actual_Score__c, Comments__c, Max_Score__c, Repanel__c FROM Topic__c WHERE Panel__r.Name =: Name];
+        /*for(Topic__c topic: Topics){
+            if(topic.Repanel__c == true){
+                count++;
+            }
+            Max_score += topic.Max_Score__c;
+            final_score += topic.Actual_Score__c;
+            
+        }
+        Topic__c lastTopic = new Topic__c();
+        lastTopic.Name = 'Total';
+        lastTopic.Max_Score__c = Max_score;
+        lastTopic.Actual_Score__c = final_score;
+        topics.add(lastTopic);*/
+        
         return topics;
     }
 }

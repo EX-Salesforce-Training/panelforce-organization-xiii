@@ -87,7 +87,7 @@
                                  keyField="id"
                                  data="{! v.TopicsRecorded}"
                                  columns="{! v.columns }"
-                                 hideCheckboxColumn="false"/>
+                                 hideCheckboxColumn="true"/>
             <div class="slds-grid slds-wrap">
                 <div class="slds-col slds-size_5-of-12">
                     <div class="total">
