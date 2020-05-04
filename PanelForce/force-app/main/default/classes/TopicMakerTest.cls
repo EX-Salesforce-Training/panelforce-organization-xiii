@@ -7,7 +7,7 @@ public class TopicMakerTest {
         Contact con = new Contact(LastName = 'Rhee');
         insert con;
 
-        for (Integer i = 0; i < 100; i++) {
+        for (Integer i = 0; i < 10; i++) {
             Curriculum__c curr = new Curriculum__c(Name = 'Temp');
             curr.Topics__c = 'Tech1,Tech2,Tech3,Tech4';
             curr.Max_Scores__c = '21,22,23,24';
@@ -17,7 +17,7 @@ public class TopicMakerTest {
         }
         insert currs;
 
-        for (Integer i = 0; i < 100; i++) {
+        for (Integer i = 0; i < 10; i++) {
             pans.add(new Panel__c(Template__c = currs[i].Id, Contact__c = con.Id));
             System.debug(currs[i]);
             System.debug(pans[i]);
