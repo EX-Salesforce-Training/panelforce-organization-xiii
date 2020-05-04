@@ -2,9 +2,14 @@
     /* Initializes the Data Table with All Panels */
     init: function (component, event, helper){
         
+        var actions = [
+            { label: 'Show details', name: 'show_details' }
+        ]
+        
         component.set('v.mycolumns', [
             {label: 'Panel', fieldName: 'Name', type: 'text'},
-            {label: 'Contact Name', fieldName: 'ContactName', type: 'text'}
+            {label: 'Contact Name', fieldName: 'ContactName', type: 'text'},
+            { type: 'action', typeAttributes: { rowActions: actions } }
         ]);
         
         helper.getData(component);
@@ -21,5 +26,15 @@
             
             helper.getFilteredPanelList(component, queryTerm);
         }
-    }
+    },
+     handleRowAction: function (cmp, event, helper) {
+        var action = event.getParam('action');
+        var row = event.getParam('row');
+         
+         switch (action.name) {
+            case 'show_details':
+                alert('Showing Details: ' + JSON.stringify(row));
+                break;
+         }
+     }
 })

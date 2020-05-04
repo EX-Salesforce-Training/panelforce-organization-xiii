@@ -5,125 +5,149 @@
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     
     <lightning:card>
-        <lightning:card title="Interview Details">
+        <lightning:card>
+            <div class="TitleText">
+                Interview Details
+            </div>
+            <br/>
             <div class="slds-grid slds-wrap">
                 <div class="slds-col slds-size_1-of-4">
-                    <span>Associate</span>
+                    <div class="headers">Associate</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     <span>{!v.PanelInfo.Contact__r.Name}</span>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    <span> Recording Link</span>
+                    <div class="headers"> Recording Link</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     <span>{!v.PanelInfo.Recording_Link__c}</span>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Assigned To
+                    <div class="headers">Assigned To</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Assigned_To__r.Name}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Recording Concent
+                    <div class="headers">Recording Concent</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Recording_Consent__c}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Date/Time
+                    <div class="headers">Date/Time</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     <lightning:formattedDateTime value="{!v.PanelInfo.Date_Time__c}" year="numeric" month="numeric" day="numeric" hour="2-digit"
                                                  minute="2-digit" timeZoneName="short" hour12="true"/>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Mode
+                    <div class="headers">Mode</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Mode__c}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Duration
+                    <div class="headers">Duration</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Duration__c}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Stabilty
+                    <div class="headers">Stabilty</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Stability__c}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Panel Round
+                    <div class="headers">Panel Round</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Panel_Round__c}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Training Assignment
+                    <div class="headers">Training Assignment</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Training_Assignment__r.Name}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Template
+                    <div class="headers">Template</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Template__r.Name}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    Placement
+                    <div class="headers">Placement</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Placement__c}
                 </div>
             </div>
         </lightning:card>
-        <lightning:card title="Technical Feedback">
-            <lightning:card footer="Total">
-            <lightning:datatable
-                                 keyField="id"
-                                 data="{! v.TopicsRecorded}"
-                                 columns="{! v.columns }"
-                                 hideCheckboxColumn="true"/>
-                </lightning:card>
-            <div class="slds-grid slds-wrap">
-                <div class="slds-col slds-size_5-of-12">
-                    <div class="total">
-                        Total
+        <lightning:card>
+            <div class="TitleText">
+                Technical Feedback
+            </div>
+            <br/>
+            <lightning:card>
+                <lightning:datatable
+                                     keyField="id"
+                                     data="{! v.TopicsRecorded}"
+                                     columns="{! v.columns }"
+                                     hideCheckboxColumn="true"/>
+                <div class="slds-grid slds-wrap slds-m-left_x-small">
+                    <div class="slds-col slds-size_1-of-5">
+                        <div class="total">
+                            Total
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5">
+                        <div class="Score">
+                            {!v.PanelInfo.Max_Score__c}
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5">
+                        <div class="TScore">
+                            {!v.PanelInfo.Total_Score__c}
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5">
+                        <div class="TopicR">
+                            {!v.PanelInfo.Topics_to_be_Repaneled__c}
+                        </div>
                     </div>
                 </div>
-                <div class="slds-col slds-size_2-of-12">
-                    {!v.PanelInfo.Max_Score__c}
-                </div>
-                <div class="slds-col slds-size_2-of-12">
-                    {!v.PanelInfo.Total_Score__c}
-                </div>
-            </div>
+            </lightning:card>
+            <br/>
+            
             <div class="slds-grid slds-wrap">
-                <div class="slds-col slds-size_3-of-12">
+                <div class="slds-col slds-size_3-of-12 slds-m-left_x-small">
                     Overall Feedback
                 </div>
-                <div class="slds-col slds-size_9-of-12">
+                <div class="slds-col slds-size_8-of-12">
                     {!v.PanelInfo.Panel_Comments__c}
                 </div>
-                <div class="slds-col slds-size_3-of-12">
+                <div class="slds-col slds-size_3-of-12 slds-m-left_x-small">
                     Client Interview Ready?
                 </div>
-                <div class="slds-col slds-size_9-of-12">
+                <div class="slds-col slds-size_7-of-12 ">
                     {!v.PanelInfo.Client_Interview_Ready__c}
                 </div>
-                <div class="slds-col slds-size_3-of-12">
+                <div class="slds-col slds-size_3-of-12 slds-m-left_x-small">
                     Panel Comments
                 </div>
-                <div class="slds-col slds-size_9-of-12">
+                <div class="slds-col slds-size_7-of-12">
                     {!v.PanelInfo.Panel_Comments__c}
                 </div>
             </div>
         </lightning:card>
+        <lightning:buttonGroup>
+            <lightning:button variant="destructive-text" label="Cancel" onclick="{! c.cancelClick }"/>
+            <lightning:button variant="brand-outline" label="Previous" onclick="{! c.previousClick }"/>
+            <lightning:button variant="brand-outline" label="Next" onclick="{! c.nextClick }"/>
+        </lightning:buttonGroup>
     </lightning:card>
     
 </aura:component>

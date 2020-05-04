@@ -14,7 +14,8 @@
         <lightning:datatable data="{!v.panelsList}"
                              columns="{!v.mycolumns}"
                              keyField="Id"
-                             hideCheckboxColumn="true"/>
+                             hideCheckboxColumn="true"
+                             onrowaction="{! c.handleRowAction }"/>
         
     </lightning:card>
         
