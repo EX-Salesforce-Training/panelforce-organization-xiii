@@ -1,6 +1,6 @@
 public class TopicMaker {
     public static void createTopics(List<Panel__c> panels) {
-        List<Topic__c> topics = new List<Topic__c>(); 
+        List<Topic__c> topics = new List<Topic__c>();
         for (Panel__c p: panels) {
             if (p.Template__c != null) {
                 List<String> topicStr = p.Template__r.Topics__c.split(',');
