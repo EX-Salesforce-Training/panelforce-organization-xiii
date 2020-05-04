@@ -83,11 +83,13 @@
             </div>
         </lightning:card>
         <lightning:card title="Technical Feedback">
+            <lightning:card footer="Total">
             <lightning:datatable
                                  keyField="id"
                                  data="{! v.TopicsRecorded}"
                                  columns="{! v.columns }"
                                  hideCheckboxColumn="true"/>
+                </lightning:card>
             <div class="slds-grid slds-wrap">
                 <div class="slds-col slds-size_5-of-12">
                     <div class="total">
