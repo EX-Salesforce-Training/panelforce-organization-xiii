@@ -7,11 +7,9 @@ public class TopicMaker {
         List<Panel__c> panelTemplates = [SELECT Template__c, Template__r.Topics__c, Template__r.Max_Scores__c FROM Panel__c WHERE Id IN :ids];
         for (Panel__c p: panelTemplates) {
             if (p.Template__c != null) {
-                System.debug(p.Template__c);
-                System.debug(p.Template__r);
                 List<String> topicStr = p.Template__r.Topics__c.split(',');//= {'tech1','tech2','tech3','tech4'}
                 List<String> maxScores = p.Template__r.Max_Scores__c.split(',');
-                if(topics.size() != maxScores.size())
+                if(topicStr.size() != maxScores.size())
                     p.addError('CSV are not the same size');
                 else 
                     for (Integer i = 0; i < topicStr.size(); i++) {

@@ -29,18 +29,18 @@ public class TopicMakerTest {
     static void createTopicsPositive() {
         Test.startTest();
         Test.stopTest();
-        Panel__c ivan = new Panel__c();
+
         List<Panel__c> panelList = [SELECT Id, Name FROM Panel__c];
         List<Curriculum__c> temp  = [SELECT Name, Max_Scores__c, Topics__c FROM Curriculum__c];//
         List<Topic__c> top = [SELECT Name, Max_Score__c, Panel__c FROM Topic__c WHERE Name LIKE 'Tech%'];
-        //List<List<sObject>> TopicSearch = [Find 'Tech' IN NAME FIELDS RETURNING Topic__c];
-        System.assertEquals(4 * temp.size(), top.size());//check if correct number of Topic__c objects where created
+
+        System.assertEquals(4 * panelList.size(), top.size());//check if correct number of Topic__c objects where created
         for(Integer i = 0; i<temp.size(); i++){
             List<String> techs = temp[i].Topics__c.split(',');
-            List<String> MaxScore = temp[i].Max_Scores__c.split(',');
-            for(Integer j = 1; j<=4; j++){
-                System.assertEquals('Tech'+j, techs[j]);
-                System.assertEquals('2' + j, techs[j]);
+            List<String> maxScore = temp[i].Max_Scores__c.split(',');
+            for(Integer j = 0; j<4; j++){
+                System.assertEquals('Tech'+(j+1), techs[j]);
+                System.assertEquals(20 + (j+1), Integer.valueOf(maxScore[j]));
                 
             }
         }
@@ -59,7 +59,7 @@ public class TopicMakerTest {
     static void createTopicsNegative() {
         Test.startTest();
         Test.stopTest(); 
-        Contact con = new Contact(LastName = 'Rhee');
+        Contact con = [SELECT Id FROM Contact WHERE LastName = 'Rhee' LIMIT 1];
         //Bad cases
         try{
         Curriculum__c badCurr1 = new Curriculum__c(Name = 'badTemp1', Topics__c = 'Tech1,Tech2,Tech3', Max_Scores__c = '20,21,22,23');
@@ -74,8 +74,9 @@ public class TopicMakerTest {
         insert badPanel2;
         }//end try block
         catch(Exception e){
-            Boolean expectedExceptionThrown = e.getMessage().contains('CSV are not the same size') ? true :false;
-            System.assertEquals(expectedExceptionThrown,true);
+            System.debug(e.getMessage());
+            Boolean expectedExceptionThrown = e.getMessage().contains('CSV are not the same size');
+            System.assert(expectedExceptionThrown);
         }
 
     }
