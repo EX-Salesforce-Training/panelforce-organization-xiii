@@ -25,7 +25,8 @@
 }
 
 .THIS .button{
-    text-align:right;
+    text-align:right;  
+    
 }
 
 .THIS .flex{
@@ -82,4 +83,16 @@
 .THIS .mainContainer{
    background-color:blue;
    width:100%;
+}
+
+.THIS .input{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+
+}
+
+.THIS .listContainer{
+    display: flex;
+    flex-direction: row;
 }

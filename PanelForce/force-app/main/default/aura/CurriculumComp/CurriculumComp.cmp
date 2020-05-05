@@ -3,47 +3,48 @@
     <aura:attribute name="options" type="List" default="[
     {'label': '', 'value': 'checked'}]"/>
     <aura:attribute name="value" type="List" default="option1"/>
-    <aura:attribute name="technologyInput" type="String"/>
     <aura:attribute name="cur" type="Curriculum__c" default="{'sObjectType':'Curriculum__c', 
                                                                'Name':'',
                                                                'Topics__c':'',
                                                                'Max_Score__c':''}"/>
 
+    <aura:handler name="init" action="{!c.addInputField}" value="{!this}"/>                                                           
     <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
-
-    <aura:attribute name="topic" type="Topic__c" default="{'sObjectType':'Topic__c', 
-                                                            'Name':''}"/>
+    <aura:attribute name="mainTopicList" type="List"/>
 
     <lightning:layout horizontalAlign="center" class="flex">
             <div class ="containerLeft">
                 <div class="firstSec">
                     <div class="flexRow">
-                        <div class="centerTitle">Technology</div>
                         <div class="centerTechInput">
-                            <lightning:input value="{!v.technologyInput}"></lightning:input>
+                            <lightning:input label="Curriculum" value="{!v.cur.Name}" class="input"/>
                         </div>
-
                     </div>
-
                 </div>
-                    
-                <div class="secondSec">
-
                 
+                <lightning:layout>
+                    <lightning:layoutItem class="listContainer">
+                        {!v.body}
+                    </lightning:layoutItem>
+                </lightning:layout> 
+                <lightning:layout horizontalAlign="center" verticalAlign="center">
+                    <lightning:layoutItem>
+                        <lightning:buttonIcon iconName="utility:dash" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.removeInputField}"/>
+                   
+                        <lightning:buttonIcon iconName="utility:add" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.addInputField}"/>
+                   
+                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium" onclick="{!c.submitButtonOnClick}"/>
+                    </lightning:layoutItem>     
+                </lightning:layout>
+                <!--                 
+                <div class="secondSec">
                     <div class="button">
-                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium"/>
-                    
+                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium" onclick="{!c.submitButtonOnClick}"/>                   
                     </div>
                 </div>
-
+            -->
             </div>
-
             <div class ="containerRight">
-                <c:TechnologyList/>
             </div>
-                        
-
-        </lightning:layout>
-    
-    
+        </lightning:layout>   
 </aura:component>
