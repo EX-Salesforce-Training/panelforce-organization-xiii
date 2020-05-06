@@ -60,7 +60,12 @@
         });
         action.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
+<<<<<<< HEAD
                 //component.set("v.technologyList", response.getReturnValue());               
+=======
+                //component.set("v.technologyList", response.getReturnValue());
+                
+>>>>>>> Integration
             }
             else{
                 console.log("Error " + response.getState());
