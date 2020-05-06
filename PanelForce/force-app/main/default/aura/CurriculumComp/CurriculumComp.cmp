@@ -8,17 +8,30 @@
                                                                'Topic__c':'',
                                                                'Max_Score__c':''}"/>
 
+<<<<<<< HEAD
     <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topic__c', 
                                                                 'Name':' ',
                                                                 'Max_Score__c':''}"/>
 
+=======
+    <aura:attribute name="topicObj" type="Topics__c" default="{'sObjectType':'Topics__c', 
+                                                                'Name':' ',
+                                                                'Max_Score__c':''}"/>
+  
+>>>>>>> Integration
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
     <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
 
 
+<<<<<<< HEAD
     <aura:attribute name="mainTopicList" type="Aura.Component[]"/>
     <aura:attribute name="filterList" type="String[]"/>
     <aura:attribute name="topicObjList" type="Topic__c[]"/>
+=======
+    <aura:attribute name="mainTopicList" type="String[]"/>
+    <aura:attribute name="filterList" type="String[]"/>
+    <aura:attribute name="topicObjList" type="Topics__c[]"/>
+>>>>>>> Integration
     <aura:attribute name="page" type="integer" description="using for store page Number"/>
     <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
     <aura:attribute name="total" type="integer" description="total records count store "/>
@@ -32,7 +45,11 @@
                         </div>
                     </div>
                 </div>                
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> Integration
                 <lightning:layout>
                     
                     <div class="slds-m-around_small">
@@ -49,7 +66,11 @@
                             </ui:inputSelect>
                         </div>
                         
+<<<<<<< HEAD
                         <div aura:id="changeIt">
+=======
+                        <div aura:id="changeIt" class="filterContainer">
+>>>>>>> Integration
                             <aura:iteration items="{!v.filterList}" var="topic"> 
                                 <div class="slds-truncate" title="{!topic}">{!topic}</div>
                                     

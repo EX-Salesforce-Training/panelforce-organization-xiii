@@ -85,6 +85,7 @@
    width:100%;
 }
 
+<<<<<<< HEAD
 .THIS .input{
     display: flex;
     flex-direction: row;
@@ -95,4 +96,26 @@
 .THIS .listContainer{
     display: flex;
     flex-direction: row;
+=======
+.THIS .changeMe10 {
+    background-color:yellow;
+    height:575px;
+}
+
+.THIS .changeMe15 {
+    background-color:yellow;
+    height:650px;
+}
+
+.THIS .changeMe20 {
+    background-color:yellow;
+    height:725px;
+}
+
+.THIS .filterContainer{
+	display:flex;
+    width:375px;
+    flex-wrap:wrap;
+ 
+>>>>>>> Integration
 }
