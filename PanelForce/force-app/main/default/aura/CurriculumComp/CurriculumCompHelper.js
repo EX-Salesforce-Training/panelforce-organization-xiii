@@ -15,39 +15,22 @@
         if(topicList.length!=0){
             console.log(topicList[0].Name);
         }
-<<<<<<< HEAD
-                
-        for(var i =offsetIndex;i<offsetLength;i++){
-=======
         
         
         for(var i =offsetIndex;i<offsetLength;i++){
             //console.log("INDEX: " +i + " CONDITION" + i +" " + offsetLength);
->>>>>>> Integration
         
             if(mainList.length>=i){
         
               filterList.push(mainList[i]);  
-<<<<<<< HEAD
-            }            
-=======
             }
             
->>>>>>> Integration
         }
 
 	     component.set("v.filterList", filterList);
          component.set("v.page", page);
          component.set("v.total", mainList.length);
  		 component.set("v.pages", Math.ceil(mainList.length / recordToDisply));
-<<<<<<< HEAD
-	},
-    applyCSS: function(cmp, event) {
-
-        var cmpTarget = cmp.find('changeIt');
-
-        $A.util.addClass(cmpTarget, 'changeMe');
-=======
         
          
 	},
@@ -64,7 +47,6 @@
         }
 
         
->>>>>>> Integration
 
     },
 
@@ -72,13 +54,8 @@
 
         var cmpTarget = cmp.find('changeIt');
 
-<<<<<<< HEAD
-        $A.util.removeClass(cmpTarget, 'changeMe');
-
-=======
         $A.util.removeClass(cmpTarget, 'changeMe10');
 		$A.util.removeClass(cmpTarget, 'changeMe15');
         $A.util.removeClass(cmpTarget, 'changeMe20');
->>>>>>> Integration
     }
 })
