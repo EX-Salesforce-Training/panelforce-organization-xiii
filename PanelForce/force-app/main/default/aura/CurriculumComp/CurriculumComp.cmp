@@ -5,12 +5,23 @@
     <aura:attribute name="value" type="List" default="option1"/>
     <aura:attribute name="cur" type="Curriculum__c" default="{'sObjectType':'Curriculum__c', 
                                                                'Name':'',
-                                                               'Topics__c':'',
+                                                               'Topic__c':'',
                                                                'Max_Score__c':''}"/>
 
-    <aura:handler name="init" action="{!c.addInputField}" value="{!this}"/>                                                           
+    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topic__c', 
+                                                                'Name':' ',
+                                                                'Max_Score__c':''}"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
     <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
-    <aura:attribute name="mainTopicList" type="List"/>
+
+
+    <aura:attribute name="mainTopicList" type="Aura.Component[]"/>
+    <aura:attribute name="filterList" type="String[]"/>
+    <aura:attribute name="topicObjList" type="Topic__c[]"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>
 
     <lightning:layout horizontalAlign="center" class="flex">
             <div class ="containerLeft">
@@ -20,13 +31,35 @@
                             <lightning:input label="Curriculum" value="{!v.cur.Name}" class="input"/>
                         </div>
                     </div>
-                </div>
-                
+                </div>                
+    
                 <lightning:layout>
-                    <lightning:layoutItem class="listContainer">
-                        {!v.body}
-                    </lightning:layoutItem>
-                </lightning:layout> 
+                    
+                    <div class="slds-m-around_small">
+                        <div class="slds-page-header" role="banner">
+                            <div class="slds-align_absolute-center">            
+                                <lightning:button disabled="{!v.page == 1}" variant="brand" label="Previous Page" onclick="{! c.navigate }" />            
+                                <lightning:button disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next Page" onclick="{! c.navigate }" />
+                            </div>
+                            <p class="slds-page-header__title slds-truncate">{!v.total} Items • page {!v.page} / {!v.pages}</p>
+                            <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}">
+                                <ui:inputSelectOption text="10" label="10" value="true"/>
+                                <ui:inputSelectOption text="15" label="15"/>
+                                <ui:inputSelectOption text="20" label="20"/>
+                            </ui:inputSelect>
+                        </div>
+                        
+                        <div aura:id="changeIt">
+                            <aura:iteration items="{!v.filterList}" var="topic"> 
+                                <div class="slds-truncate" title="{!topic}">{!topic}</div>
+                                    
+                            </aura:iteration>
+                        </div>
+                       
+                    </div>
+         
+                    
+                </lightning:layout>                   
                 <lightning:layout horizontalAlign="center" verticalAlign="center">
                     <lightning:layoutItem>
                         <lightning:buttonIcon iconName="utility:dash" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.removeInputField}"/>
@@ -36,13 +69,6 @@
                         <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium" onclick="{!c.submitButtonOnClick}"/>
                     </lightning:layoutItem>     
                 </lightning:layout>
-                <!--                 
-                <div class="secondSec">
-                    <div class="button">
-                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium" onclick="{!c.submitButtonOnClick}"/>                   
-                    </div>
-                </div>
-            -->
             </div>
             <div class ="containerRight">
             </div>
