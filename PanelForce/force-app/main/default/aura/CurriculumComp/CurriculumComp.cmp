@@ -8,17 +8,15 @@
                                                                'Topic__c':'',
                                                                'Max_Score__c':''}"/>
 
-    <aura:attribute name="topicObj" type="Topics__c" default="{'sObjectType':'Topics__c', 
+    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topics__c', 
                                                                 'Name':' ',
                                                                 'Max_Score__c':''}"/>
   
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
-    <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
-
 
     <aura:attribute name="mainTopicList" type="String[]"/>
     <aura:attribute name="filterList" type="String[]"/>
-    <aura:attribute name="topicObjList" type="Topics__c[]"/>
+    <aura:attribute name="topicObjList" type="Topic__c[]"/>
     <aura:attribute name="page" type="integer" description="using for store page Number"/>
     <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
     <aura:attribute name="total" type="integer" description="total records count store "/>
