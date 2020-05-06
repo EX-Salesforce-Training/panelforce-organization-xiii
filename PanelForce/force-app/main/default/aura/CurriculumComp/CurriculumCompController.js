@@ -20,51 +20,35 @@
 
     submitButtonOnClick: function(component,event,helper){
 
-        // var topicNames = component.find("topicName");
-        // var topicMaxScores = component.find("maxScore");
+        var topicNames = component.find("topicName");
+        var topicMaxScores = component.find("maxScore");
         
         var topics = "";
         var maxscore = "";
 
-        // var i;
+        var i;
 
-        // for(i=0; i < topicNames.length; i++){
-            
-        //     if(topics === ""){
-        //         topics += topicNames[i].get("v.value");
-        //     }
-        //     else{
-        //         topics += "," + topicNames[i].get("v.value");
-        //     }
-
-        //     if(maxscore === ""){
-        //         maxscore += topicMaxScores[i].get("v.value");
-        //     }
-        //     else{
-        //         maxscore += "," + topicMaxScores[i].get("v.value");
-        //     }
-        // }
-
-        var mainTopicList = component.get("v.mainTopicList");
-        var topicObjList = component.get("v.topicObjList");
-        var x;
-
-        // for(x in mainTopicList){
-        //     if(topics === ""){
-        //         topics += x.Name;
-        //     }
-        //      else{
-        //         topics += "," + x.Name;
-        //     }
-        //     if(maxscore === ""){
-        //         maxscore += x.Max_Score__c;
-        //     }
-        //      else{
-        //         maxscore += "," + x.Max_Score__c;
-        //     }      
-            
-        //     console.log(x.get("v.value"));
-        // }
+        for(i=0; i < topicNames.length; i++){
+            console.log(topicNames[i].get("v.value"));
+            if((topicNames[i].get("v.value") == " " )|| (topicNames[i].get("v.value") == null)){
+                continue;
+            }
+            else{               
+                if(topics === ""){
+                    topics += topicNames[i].get("v.value");
+                }
+                else{
+                    topics += "," + topicNames[i].get("v.value");
+                }
+    
+                if(maxscore === ""){
+                    maxscore += topicMaxScores[i].get("v.value");
+                }
+                else{
+                    maxscore += "," + topicMaxScores[i].get("v.value");
+                }
+            }            
+        }
 
         var newCurriculum = component.get("v.cur");
         newCurriculum.Topics__c = topics;
@@ -109,8 +93,6 @@
                 component.set("v.body", body);
 
                 mainTopicList.push(newInput);
-                topicObjList[topicObjList.length-1].Name = newInput;
-                console.log(newInput + " FUCK " + newInput.get("v.value") ) ;
 			}
         } );
 
@@ -126,7 +108,7 @@
                 component.set("v.body", body);
 
                 mainTopicList.push(newInput);
-                topicObjList[topicObjList.length-1].Max_Score__c = newInput;
+                //topicObjList[topicObjList.length-1].Max_Score__c = newInput;
 			}
         } );
 
@@ -144,15 +126,20 @@
 
         var mainTopicList=component.get("v.mainTopicList");
         var topicObjList = component.get("v.topicObjList");
+        var body = component.get("v.body");
 
         mainTopicList.pop();
         mainTopicList.pop();
 
         topicObjList.pop();
         topicObjList.pop();
+
+        body.pop();
+        body.pop();
 
         component.set("v.mainTopicList", mainTopicList);
         component.set("v.topicObjList", topicObjList);
+        component.set("v.body", body);
 
         var page = component.get("v.page") || 1;
       	// get the select option (drop-down) values.   

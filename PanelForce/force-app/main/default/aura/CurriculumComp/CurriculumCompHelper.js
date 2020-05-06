@@ -15,16 +15,13 @@
         if(topicList.length!=0){
             console.log(topicList[0].Name);
         }
-        
-        
+                
         for(var i =offsetIndex;i<offsetLength;i++){
-            //console.log("INDEX: " +i + " CONDITION" + i +" " + offsetLength);
         
             if(mainList.length>=i){
         
               filterList.push(mainList[i]);  
-            }
-            
+            }            
         }
 
 	     component.set("v.filterList", filterList);
