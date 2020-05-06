@@ -1,23 +1,31 @@
-<aura:component>
-    <aura:attribute name="panel" type="Panel__c" default="{Name : '', Assigned_To__c : '',
-        Contact__c : '', Date_Time__c : '', Duration__c : '', Mode__c : '', Panel_Round__c : 0,
-        Recording_Consent__c : '', Template__c : ''}"/>
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global">
     <aura:attribute name="topics" type="Topic__c[]"/>
-    <aura:attribute name="id" type="Id"/>
-
-    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <force:recordData aura:id="service" targetFields="{!v.panel}" recordId="{!v.id}"/>
+    <aura:attribute name="id" type="id"/>
     
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
 
-    <lightning-input type="string" name="id" label="Enter a date" />
-    <lightning:outputField fieldName="Assigned_To__c" />
-    <lightning:outputField fieldName="Contact__c" />
-    <lightning:outputField fieldName="Date_Time__c" />
-    <lightning:outputField fieldName="Duration__c" />
-    <lightning:outputField fieldName="Mode__c" />
-    <lightning:outputField fieldName="Panel_Round__c" />
-    <lightning:outputField fieldName="Recording_Consent__c" />
-
+    <lightning:recordEditForm aura:id = "RecordDataID" recordId="{!v.id}" objectApiName="Panel__c">
+        <lightning:messages />
+       <span class = "inputStuff"> <lightning:outputField fieldName ="Contact__r.Name"/></span>
+       <span class = "inputStuff"><lightning:outputField fieldName ="Date_Time__c"/></span>
+        <span class = "inputStuff"> <lightning:inputField fieldName = "Duration__c" /> </span>
+        <span class = "inputStuff"> <lightning:inputField fieldName = "Mode__c"/> </span>
+        <span class = "inputStuff"><lightning:inputField fieldName ="Panel_Round__c"/> </span>
+        <lightning:outputField fieldName ="Recording_Consent__c"/>
+        <lightning:outputField fieldName = "Template__c"/>
         
+        <!--iterate through the topics list, creating a record edit form that allows you to edit actual score and comment-->
+        <aura:iteration items="{!v.topics}" var="topic">
+            <c:RecordPanelDataTopics/>
+        </aura:iteration>
+
+        <!--Here, allow edit of Overall feedback, Client Interview Ready, and Panel Comments using recordEditForm inputField-->
+        <span class = "LastThree"><lightning:inputField fieldName ="Overall_Feedback__c"/></span>
+        <span class = "LastThree"><lightning:inputField fieldName ="Client_Interview_Ready__c"/></span>
+        <span class = "LastThree"><lightning:inputField fieldName ="Panel_Comments__c"/></span>
+        <span class = "LastThree"><lightning:inputField fieldName ="Recording_URL__c"/></span>
+        
+        <lightning:button name = "SubmitButton" type= "submit" label = "Submit" onclick="{!c.handleSaveRecord}"/>
+    </lightning:recordEditForm>
 
 </aura:component>
