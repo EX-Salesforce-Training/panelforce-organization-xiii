@@ -1,0 +1,57 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="TechnologyListController">
+    
+    <aura:attribute name="technologyList" type="Topic__c[]"/>
+    
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
+    <aura:registerEvent name="addTopics" type="c:UpdateTopics"/>
+
+    <div>
+        <h1>Technology List</h1>
+    </div>
+    <lightning:layout>
+
+        <aura:iteration items="{!v.technologyList}" var="topic">
+            <lightning:layoutItem class="checkbox">
+                <input type="checkbox" id="{! topic.Name}" value="checkbox-unique-id-73" checked="" />                                        
+            </lightning:layoutItem>
+            <lightning:layoutItem >
+                <lightning:input class="topicName" value="{! topic.Name}" readonly="true"/>                             
+            </lightning:layoutItem>
+            <lightning:layoutItem >
+                <lightning:input value="{! topic.Max_Score__c}"/>
+            </lightning:layoutItem>
+        </aura:iteration>
+    </lightning:layout>
+    <lightning:layout>
+        <lightning:layoutItem >
+            <lightning:buttonIcon iconName="utility:back" variant="brand" alternativeText="Back" title="Back" />
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <lightning:buttonIcon iconName="utility:forward" variant="brand" alternativeText="Forward" title="Forward" />
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <lightning:buttonIcon iconName="utility:add" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.addTopicEvent}"/>
+        </lightning:layoutItem>        
+    </lightning:layout>
+</aura:component>
+<!--
+<div class="slds-form-element">
+    <div class="slds-form-element__control">
+      <div class="slds-checkbox">
+        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73" checked="" />
+        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+          <span class="slds-checkbox_faux"></span>
+          <span class="slds-form-element__label">Checkbox Label</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="slds-form-element">
+  <label class="slds-form-element__label" for="text-input-id-1">
+    <abbr class="slds-required" title="required">* </abbr>Input Label</label>
+  <div class="slds-form-element__control">
+    <input type="text" id="text-input-id-1" placeholder="Placeholder Text" required="" class="slds-input" />
+  </div>
+</div>
+-->
