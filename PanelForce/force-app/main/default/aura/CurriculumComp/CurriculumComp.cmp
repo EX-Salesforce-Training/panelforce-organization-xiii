@@ -13,7 +13,7 @@
                                                                 'Max_Score__c':''}"/>
   
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
-    
+
     <aura:attribute name="mainTopicList" type="String[]"/>
     <aura:attribute name="filterList" type="String[]"/>
     <aura:attribute name="topicObjList" type="Topic__c[]"/>
