@@ -5,21 +5,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
         <apexClass>CurriculumControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TechnologyListController</apexClass>
-<<<<<<< HEAD
-=======
-        <apexClass>FilterPanelResultsByNameController</apexClass>
->>>>>>> Integration
-=======
->>>>>>> master
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
