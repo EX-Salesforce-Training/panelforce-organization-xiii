@@ -6,11 +6,11 @@
     <aura:attribute name="cur" type="Curriculum__c" default="{'sObjectType':'Curriculum__c', 
                                                                'Name':'',
                                                                'Topic__c':'',
-                                                               'Max_Score__c':''}"/>
+                                                               'Max_Scores__c':''}"/>
 
     <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topic__c', 
                                                                 'Name':' ',
-                                                                'Max_Score__c':''}"/>
+                                                                'Max_Scores__c':''}"/>
 
     <aura:attribute name="mainTopicList" type="Aura.Component[]"/>
     <aura:attribute name="filterList" type="String[]"/>
