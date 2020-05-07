@@ -25,8 +25,8 @@
                 <div class="slds-clearfix">
                 <div class="slds-float_right">
                         <lightning:button label="Cancel" class="button" onclick="{!c.onCancel}"/>
-                        <lightning:button aura:id="submit" class="button" type="submit" label="Submit"/>
-                        <lightning:button aura:id="next" class="button" type="submit" label="Next"/>
+                        <lightning:button aura:id="submit" class="button" type="submit" label="Submit" onclick="{!c.onClick}"/>
+                        <lightning:button aura:id="next" class="button" type="submit" label="Next" onclick="{!c.onClick}"/>
                 </div></div>
             </lightning:card>
         </lightning:recordEditForm>
