@@ -1,1 +1,3 @@
-<aura:event type="COMPONENT" description="Event template"/>
+<aura:event type="Component" description="Navigate to Detailed Panel Results">
+    <aura:attribute name="panelName" type="String"/>
+</aura:event>

@@ -1,14 +1,11 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="DetailedPanelResultsController">
+    
     <aura:attribute name="PanelInfo" type="Panel__c"  />
     <aura:attribute name="TopicsRecorded" type="Topic__c[]"/>
     <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="selectedPanelId" type="String"/>
     
-   
-
-    <aura:handler name="PopulateDatatable" event="c:NavigateToDetailedPanelResults" action="{!c.PopulateDatatable}"/>
-    
-    <!-- <aura:handler name="sampleComponentEvent" event="c:NavigateToDetailedPanelResults"
-    action="{!c.EventAction}"/> -->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     
     <lightning:card>
         <lightning:card>
@@ -154,7 +151,7 @@
             </div>
            </div>
         </lightning:card >
-        
+        <!--
         <div class="slds-clearfix">
   		<div class="slds-float_right">
         
@@ -165,6 +162,7 @@
         </lightning:buttonGroup>
             </div>
         </div>
+-->
     </lightning:card>
     
 </aura:component>

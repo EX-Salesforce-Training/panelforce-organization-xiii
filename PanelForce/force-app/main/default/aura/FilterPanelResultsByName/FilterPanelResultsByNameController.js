@@ -5,10 +5,7 @@
         var actions = [
             { label: 'View Panel Results', name: 'View_Panel_Results' },
             { label: 'View Associate History', name: 'View_Associate_History' }
-            
         ]
-        
-        
         
         component.set('v.mycolumns', [
             {label: 'Panel', fieldName: 'Name', type: 'text'},
@@ -31,25 +28,33 @@
             helper.getFilteredPanelList(component, queryTerm);
         }
     },
-    handleRowAction: function (cmp, event, helper) {
+    
+    handleRowAction: function (cmp, event, helper){
+        
+        console.log("Entered controller with event.");
         var action = event.getParam('action');
         var row = event.getParam('row');
-        var PanelNavEvent = cmp.getEvent('PanelEvent');   
-        
-        var panelName = row.Name;
-        console.log(panelName);
-        PanelNavEvent.setParams({
-            "panelName" : panelName });
-      
+        var panelId = row.Id;
+        //console.log(panelName);
        
-        switch (action.name) {
+        switch (action.name){
             case 'View_Panel_Results':
-                PanelNavEvent.fire();
+                console.log("Entered action to fire event.");
+                var PanelNavEvent = cmp.getEvent('PanelEvent');
+                PanelNavEvent.setParams({ "panelId" : panelId });
+                console.log("Set params for event.");
+                
+                try{
+                    PanelNavEvent.fire();
+                }
+                catch(e){
+                    console.error(e);
+                }
+                
                 break;
             case 'View_Associate_History':
                 alert('Showing Details: ' + JSON.stringify(row));
                 break;
         }
-        
     }
 })
