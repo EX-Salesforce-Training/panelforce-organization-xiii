@@ -81,7 +81,7 @@
 
         var newCurriculum = component.get("v.cur");
         newCurriculum.Topics__c = topics;
-        newCurriculum.Max_Score__c = maxscore;
+        newCurriculum.Max_Scores__c = maxscore;
         
         var action = component.get("c.createCurriculum");
         action.setParams({
@@ -139,7 +139,7 @@
 		{"aura:id":"maxScore", 
         "label":"Max Score",
         "class": "input slds-col slds-size_1-of-2" ,
-         "value": topicObjList[topicObjList.length-1].Max_Score__c},
+         "value": topicObjList[topicObjList.length-1].Max_Scores__c},
 		function(newInput, status, errorMessage){
 			if(status === "SUCCESS"){
 				var body = component.get("v.body");
@@ -147,7 +147,7 @@
                 component.set("v.body", body);
 
                 mainTopicList.push(newInput);
-                topicObjList[topicObjList.length-1].Max_Score__c = newInput;
+                topicObjList[topicObjList.length-1].Max_Scores__c = newInput;
 			}
         } );
 

@@ -3,8 +3,7 @@
     <fullName>Max_Score__c</fullName>
     <externalId>false</externalId>
     <label>Max Score</label>
-    <summaryForeignKey>Topic__c.Panel__c</summaryForeignKey>
-    <summaryOperation>count</summaryOperation>
+    <required>false</required>
     <trackTrending>false</trackTrending>
-    <type>Summary</type>
+    <type>TextArea</type>
 </CustomField>
