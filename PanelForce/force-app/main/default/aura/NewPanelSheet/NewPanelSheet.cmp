@@ -1,5 +1,6 @@
 <aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"  access="global" >
-    <aura:attribute name="refreshForm" type="Boolean" default="true"/>
+    <aura:attribute name="refreshForm" type="boolean" default="true"/>
+    <aura:attribute name="next" type="boolean"/>
     <aura:attribute name="contact" type="id"/>
     <aura:attribute name="datetime" type="datetime"/>
     
