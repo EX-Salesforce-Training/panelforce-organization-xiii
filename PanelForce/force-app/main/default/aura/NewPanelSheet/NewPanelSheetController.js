@@ -8,7 +8,8 @@
         component.find("form").submit(fields);
     },
     onCancel : function(component, event, helper) {
-        var backEvent = component.getEvent("c:NavigateToHomePage");
+        var backEvent = component.getEvent("navToHomePage");
+        console.log("onCancel");
         backEvent.fire();
     },
     onSuccess : function(component, event, helper) {
@@ -16,7 +17,7 @@
         toastEvent.setParams({ "title" : "Success!", "message" : "Panel submitted successfully.", "type" : "success"});
         toastEvent.fire();
 
-        var forwardEvent = component.getEvent("c:NavigateToRecordPanelDataDateTime");
+        var forwardEvent = component.getEvent("navToRecordPanelDataDateTime");
         forwardEvent.setParams({"contact" : component.get("v.contact"), "datetime" : component.get("v.datetime")});
         forwardEvent.fire();
 
