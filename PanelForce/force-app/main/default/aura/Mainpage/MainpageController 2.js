@@ -10,12 +10,7 @@
 		method.setCallback(this, function(response) {
 			if (response.getState() === "SUCCESS") {
 				component.set("v.panelId", response.getReturnValue());
-				
-				try {
 				component.set("v.createPanel", false);
-				console.log(component.get("v.createPanel"));
-				} catch (e) {console.log(e)}
-
 				component.set("v.selectedTabId", "conductpanel");
 			} else console.alert("System callout failed, state is " + response.getState() + "\nError is " + response.getError());
 		});

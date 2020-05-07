@@ -1,6 +1,5 @@
 <aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"  access="global" >
-    <aura:attribute name="refreshForm" type="boolean" default="true"/>
-    <aura:attribute name="next" type="boolean"/>
+    <aura:attribute name="refreshForm" type="Boolean" default="true"/>
     <aura:attribute name="contact" type="id"/>
     <aura:attribute name="datetime" type="datetime"/>
     
@@ -25,8 +24,8 @@
                 <div class="slds-clearfix">
                 <div class="slds-float_right">
                         <lightning:button label="Cancel" class="button" onclick="{!c.onCancel}"/>
-                        <lightning:button aura:id="submit" class="button" type="submit" label="Submit" onclick="{!c.onClick}"/>
-                        <lightning:button aura:id="next" class="button" type="submit" label="Next" onclick="{!c.onClick}"/>
+                        <lightning:button aura:id="submit" class="button" type="submit" label="Submit"/>
+                        <lightning:button aura:id="next" class="button" type="submit" label="Next"/>
                 </div></div>
             </lightning:card>
         </lightning:recordEditForm>
