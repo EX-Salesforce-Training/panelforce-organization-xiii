@@ -3,47 +3,72 @@
     <aura:attribute name="options" type="List" default="[
     {'label': '', 'value': 'checked'}]"/>
     <aura:attribute name="value" type="List" default="option1"/>
-    <aura:attribute name="technologyInput" type="String"/>
     <aura:attribute name="cur" type="Curriculum__c" default="{'sObjectType':'Curriculum__c', 
                                                                'Name':'',
-                                                               'Topics__c':'',
+                                                               'Topic__c':'',
                                                                'Max_Score__c':''}"/>
 
-    <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
+    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topics__c', 
+                                                                'Name':' ',
+                                                                'Max_Score__c':''}"/>
+  
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
 
-    <aura:attribute name="topic" type="Topic__c" default="{'sObjectType':'Topic__c', 
-                                                            'Name':''}"/>
+    <aura:attribute name="mainTopicList" type="String[]"/>
+    <aura:attribute name="filterList" type="String[]"/>
+    <aura:attribute name="topicObjList" type="Topic__c[]"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>
 
     <lightning:layout horizontalAlign="center" class="flex">
             <div class ="containerLeft">
                 <div class="firstSec">
                     <div class="flexRow">
-                        <div class="centerTitle">Technology</div>
                         <div class="centerTechInput">
-                            <lightning:input value="{!v.technologyInput}"></lightning:input>
+                            <lightning:input label="Curriculum" value="{!v.cur.Name}" class="input"/>
                         </div>
-
                     </div>
+                </div>                
 
-                </div>
+                <lightning:layout>
                     
-                <div class="secondSec">
-
-                
-                    <div class="button">
-                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium"/>
-                    
-                    </div>
-                </div>
-
-            </div>
-
-            <div class ="containerRight">
-                <c:TechnologyList/>
-            </div>
+                    <div class="slds-m-around_small">
+                        <div class="slds-page-header" role="banner">
+                            <div class="slds-align_absolute-center">            
+                                <lightning:button disabled="{!v.page == 1}" variant="brand" label="Previous Page" onclick="{! c.navigate }" />            
+                                <lightning:button disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next Page" onclick="{! c.navigate }" />
+                            </div>
+                            <p class="slds-page-header__title slds-truncate">{!v.total} Items • page {!v.page} / {!v.pages}</p>
+                            <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}">
+                                <ui:inputSelectOption text="10" label="10" value="true"/>
+                                <ui:inputSelectOption text="15" label="15"/>
+                                <ui:inputSelectOption text="20" label="20"/>
+                            </ui:inputSelect>
+                        </div>
                         
-
-        </lightning:layout>
-    
-    
+                        <div aura:id="changeIt" class="filterContainer">
+                            <aura:iteration items="{!v.filterList}" var="topic"> 
+                                <div class="slds-truncate" title="{!topic}">{!topic}</div>
+                                    
+                            </aura:iteration>
+                        </div>
+                       
+                    </div>
+         
+                    
+                </lightning:layout>                   
+                <lightning:layout horizontalAlign="center" verticalAlign="center">
+                    <lightning:layoutItem>
+                        <lightning:buttonIcon iconName="utility:dash" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.removeInputField}"/>
+                   
+                        <lightning:buttonIcon iconName="utility:add" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.addInputField}"/>
+                   
+                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium" onclick="{!c.submitButtonOnClick}"/>
+                    </lightning:layoutItem>     
+                </lightning:layout>
+            </div>
+            <div class ="containerRight">
+            </div>
+        </lightning:layout>   
 </aura:component>
