@@ -1,13 +1,15 @@
 ({
-    getPanel : function(component, event, helper) {
+    getPanel : function(component, event, helper,info) {
         var action = component.get('c.GetPanel');
-        action.setParams({Name : 'Panel - 0'});
+        console.log(info);
+        action.setParams({Name : info});
         action.setCallback(this, $A.getCallback(function (response){ 
             var state = response.getState();
             console.log(state);  
             if (state === "SUCCESS"){
                 component.set('v.PanelInfo', response.getReturnValue());
                 console.log(component.get('v.PanelInfo'));
+                $A.get('e.force:refreshView').fire();
             }
             else if (state === "ERROR"){
                 var errors = response.getError();
@@ -18,9 +20,9 @@
         $A.enqueueAction(action);
     },
     
-    getTopics: function(component,event, helper) {
+    getTopics: function(component,event, helper,info) {
         var action = component.get('c.GetTopics');
-        action.setParams({Name : 'Panel - 0'});
+        action.setParams({Name : info});
         action.setCallback(this, $A.getCallback(function (response){ 
             var state = response.getState();
             console.log(state);  

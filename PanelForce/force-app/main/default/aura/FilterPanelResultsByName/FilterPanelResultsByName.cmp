@@ -2,8 +2,10 @@
     
     <aura:attribute name="panelsList" type="Panel__c[]"/>
     <aura:attribute name="mycolumns" type="List"/>
+   
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
-    
+    <aura:registerEvent name="PanelEvent" type="c:NavigateToDetailedPanelResults"/>
+
     <lightning:card>
         
         <span onkeypress="{!c.handleKeyUp}">

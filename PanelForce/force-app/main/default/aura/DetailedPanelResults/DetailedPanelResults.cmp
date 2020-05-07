@@ -1,8 +1,14 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="DetailedPanelResultsController">
-    <aura:attribute name="PanelInfo" type="Panel__c"/>
+    <aura:attribute name="PanelInfo" type="Panel__c"  />
     <aura:attribute name="TopicsRecorded" type="Topic__c[]"/>
     <aura:attribute name="columns" type="List"/>
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+   
+
+    <aura:handler name="PopulateDatatable" event="c:NavigateToDetailedPanelResults" action="{!c.PopulateDatatable}"/>
+    
+    <!-- <aura:handler name="sampleComponentEvent" event="c:NavigateToDetailedPanelResults"
+    action="{!c.EventAction}"/> -->
     
     <lightning:card>
         <lightning:card>
@@ -10,6 +16,7 @@
                 Interview Details
             </div>
             <br/>
+            <div class = 'interviewDetail'>
             <div class="slds-grid slds-wrap">
                 <div class="slds-col slds-size_1-of-4">
                     <div class="headers">Associate</div>
@@ -85,6 +92,7 @@
                     {!v.PanelInfo.Placement__c}
                 </div>
             </div>
+           </div>
         </lightning:card>
         <lightning:card>
             <div class="TitleText">
@@ -92,6 +100,7 @@
             </div>
             <br/>
             <lightning:card>
+                <div class= "dataTable">
                 <lightning:datatable
                                      keyField="id"
                                      data="{! v.TopicsRecorded}"
@@ -119,9 +128,10 @@
                         </div>
                     </div>
                 </div>
+              </div>
             </lightning:card>
             <br/>
-            
+            <div class = "overAll">
             <div class="slds-grid slds-wrap">
                 <div class="slds-col slds-size_3-of-12 slds-m-left_x-small">
                     Overall Feedback
@@ -142,12 +152,19 @@
                     {!v.PanelInfo.Panel_Comments__c}
                 </div>
             </div>
-        </lightning:card>
-        <lightning:buttonGroup>
+           </div>
+        </lightning:card >
+        
+        <div class="slds-clearfix">
+  		<div class="slds-float_right">
+        
+        <lightning:buttonGroup class = "buttonClass">
             <lightning:button variant="destructive-text" label="Cancel" onclick="{! c.cancelClick }"/>
             <lightning:button variant="brand-outline" label="Previous" onclick="{! c.previousClick }"/>
             <lightning:button variant="brand-outline" label="Next" onclick="{! c.nextClick }"/>
         </lightning:buttonGroup>
+            </div>
+        </div>
     </lightning:card>
     
 </aura:component>

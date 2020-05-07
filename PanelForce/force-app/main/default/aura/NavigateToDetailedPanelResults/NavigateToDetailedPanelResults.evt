@@ -1,0 +1,4 @@
+<aura:event type="Component" description="Navigate To Detailed Panel Results">
+    <aura:attribute name="panelName" type="string"/>
+
+</aura:event>
