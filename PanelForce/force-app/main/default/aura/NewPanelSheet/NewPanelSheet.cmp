@@ -9,7 +9,6 @@
         <lightning:recordEditForm aura:id="form" objectApiName="Panel__c" density="comfy" onsubmit="{!c.onSubmit}" onsuccess="{!c.onSuccess}">
             <lightning:card>
                 <lightning:messages/>
-                <lightning:inputField fieldName="Name"/>
                 <div class="slds-grid slds-p-around_medium slds-gutters">
                     <div class="slds-col slds-size_1-of-2">
                         <lightning:inputField fieldName="Template__c"/>

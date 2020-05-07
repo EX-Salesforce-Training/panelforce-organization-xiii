@@ -1,5 +1,5 @@
 <aura:component controller="PanelGrabber" implements="flexipage:availableForAllPageTypes,force:appHostable" access="global">
-    <aura:attribute name="createPanel" type="boolean" default="false"/>
+    <aura:attribute name="createPanel" type="boolean" default="true"/>
     <aura:attribute name="panelId" type="id"/>
     <aura:attribute name="selectedTabId" type="string" default="viewpanel"/>
 
@@ -9,7 +9,7 @@
         <lightning:tab label = "View Panels" id="viewpanel">
             <!--<c:TopLevelViewPanelList>-->
         </lightning:tab>
-        <lightning:tab label = "View Panels by Associate" id="viewpanel">
+        <lightning:tab label = "View Panels by Associate" id="viewpanel2">
             <!--<c:TopLevelViewContactList>-->
         </lightning:tab>
         <lightning:tab label = "Conduct a Panel" id="conductpanel">
