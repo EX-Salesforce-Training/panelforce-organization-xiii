@@ -31,7 +31,6 @@
     
     handleRowAction: function (cmp, event, helper){
         
-        console.log("Entered controller with event.");
         var action = event.getParam('action');
         var row = event.getParam('row');
         var panelId = row.Id;
@@ -39,18 +38,9 @@
        
         switch (action.name){
             case 'View_Panel_Results':
-                console.log("Entered action to fire event.");
                 var PanelNavEvent = cmp.getEvent('PanelEvent');
                 PanelNavEvent.setParams({ "panelId" : panelId });
-                console.log("Set params for event.");
-                
-                try{
-                    PanelNavEvent.fire();
-                }
-                catch(e){
-                    console.error(e);
-                }
-                
+                PanelNavEvent.fire();                
                 break;
             case 'View_Associate_History':
                 alert('Showing Details: ' + JSON.stringify(row));

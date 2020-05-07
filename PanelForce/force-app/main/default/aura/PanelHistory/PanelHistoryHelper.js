@@ -1,6 +1,7 @@
 ({
-	getData : function(component, event, helper) {
-        var ParentId = component.get('v.recordId');
+	getData : function(component, event, helper){
+        
+        var ParentId = component.get('v.selectedContactId');
 		var action = component.get('c.GetContactPanels');
     
         action.setParams({contactId : ParentId});
@@ -8,7 +9,7 @@
         action.setCallback(this, $A.getCallback(function (response){
            
             var state = response.getState();
-            console.log(state);
+            
             if (state === "SUCCESS"){
                 var panelResponse = response.getReturnValue();
                 

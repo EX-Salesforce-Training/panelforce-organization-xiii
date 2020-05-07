@@ -34,7 +34,7 @@
                     {!v.PanelInfo.Assigned_To__r.Name}
                 </div>
                 <div class="slds-col slds-size_1-of-4">
-                    <div class="headers">Recording Concent</div>
+                    <div class="headers">Recording Consent</div>
                 </div>
                 <div class="slds-col slds-size_1-of-4">
                     {!v.PanelInfo.Recording_Consent__c}

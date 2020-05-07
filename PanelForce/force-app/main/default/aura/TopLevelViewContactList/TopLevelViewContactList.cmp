@@ -1,5 +1,29 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="TopLevelViewContactListController">
     
+    <aura:attribute name="contactListIsVisible" type="Boolean" default="true"/>
+    <aura:attribute name="contactList" type="Contact[]"/>
+    <aura:attribute name="contactId" type="String"/>
+    <aura:attribute name="columns" type="List"/>
     
-	
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <lightning:card>
+        
+        <aura:if isTrue="{!v.contactListIsVisible}">
+            
+            <lightning:dataTable
+                                 keyField="id"
+                                 data="{! v.contactList }"
+                                 columns="{! v.columns }"
+                                 hideCheckboxColumn="true"
+                                 onrowaction="{!c.handleRowAction}"/>
+            
+            <aura:set attribute="else">
+                <c:ContactView selectedContactId="{!v.contactId}"/>
+            </aura:set>
+            
+        </aura:if>
+        
+    </lightning:card>
+    
 </aura:component>
