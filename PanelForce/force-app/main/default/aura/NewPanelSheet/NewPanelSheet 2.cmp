@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"  access="global" >
+    <aura:attribute name="refreshForm" type="Boolean" default="true"/>
+    <aura:attribute name="contact" type="id"/>
+    <aura:attribute name="datetime" type="datetime"/>
+    
+    <aura:registerEvent name="navToRecordPanelDataDateTime" type="c:NavigateToRecordPanelDataDateTime"/>
+    <aura:registerEvent name="navToHomePage" type="c:NavigateToHomePage"/>
+    <aura:if isTrue="{!v.refreshForm}">
+        <lightning:recordEditForm aura:id="form" objectApiName="Panel__c" density="comfy" onsubmit="{!c.onSubmit}" onsuccess="{!c.onSuccess}">
+            <lightning:card>
+                <lightning:messages/>
+                <div class="slds-grid slds-p-around_medium slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning:inputField fieldName="Template__c"/>
+                        <lightning:inputField fieldName="Contact__c"/>
+                        <lightning:inputField fieldName="Assigned_To__c"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 align">
+                        <lightning:inputField fieldName="Duration__c"/>
+                        <lightning:inputField fieldName="Recording_Consent__c"/>
+                        <lightning:inputField fieldName="Mode__c"/>
+                        <lightning:inputField fieldName="Date_Time__c"/>
+                </div></div>
+                <div class="slds-clearfix">
+                <div class="slds-float_right">
+                        <lightning:button label="Cancel" class="button" onclick="{!c.onCancel}"/>
+                        <lightning:button aura:id="submit" class="button" type="submit" label="Submit"/>
+                        <lightning:button aura:id="next" class="button" type="submit" label="Next"/>
+                </div></div>
+            </lightning:card>
+        </lightning:recordEditForm>
+    </aura:if>
+</aura:component>
