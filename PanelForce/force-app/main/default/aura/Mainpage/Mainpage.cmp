@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global">
+
+	<lightning:tabset>
+        <lightning:tab label = "View Panels" id="viewpanel">
+            <!---->
+        </lightning:tab>
+        <lightning:tab label = "Conduct a Panel" id="conductpanel">
+            
+        </lightning:tab>
+        <lightning:tab label = "Create a Curriculum" id="createcurriculum">
+            <c:CurriculumComp/>
+        </lightning:tab>
+    </lightning:tabset>
+</aura:component>

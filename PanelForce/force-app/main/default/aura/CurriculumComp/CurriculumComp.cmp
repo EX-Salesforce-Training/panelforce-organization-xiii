@@ -6,8 +6,9 @@
     <aura:attribute name="cur" type="Curriculum__c" default="{'sObjectType':'Curriculum__c', 
                                                                'Name':'',
                                                                'Topic__c':'',
-                                                               'Max_Scores__c':''}"/>
+                                                               'Max_Score__c':''}"/>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topic__c', 
@@ -23,14 +24,26 @@
                                                                 'Max_Scores__c':''}"/>
   
 >>>>>>> Integration
-    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
+=======
+    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topic__c', 
+                                                                'Name':' ',
+                                                                'Max_Score__c':''}"/>
 
+>>>>>>> master
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
+    <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
+
+
+<<<<<<< HEAD
 <<<<<<< HEAD
     <aura:attribute name="mainTopicList" type="Aura.Component[]"/>
     <aura:attribute name="filterList" type="String[]"/>
     <aura:attribute name="topicObjList" type="Topic__c[]"/>
 =======
     <aura:attribute name="mainTopicList" type="String[]"/>
+=======
+    <aura:attribute name="mainTopicList" type="Aura.Component[]"/>
+>>>>>>> master
     <aura:attribute name="filterList" type="String[]"/>
 <<<<<<< HEAD
     <aura:attribute name="topicObjList" type="Topics__c[]"/>
@@ -42,9 +55,12 @@
     <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
     <aura:attribute name="total" type="integer" description="total records count store "/>
 
-    <lightning:layout horizontalAlign="center" >
+    <lightning:layout horizontalAlign="center" class="flex">
             <div class ="containerLeft">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
                 <div class="firstSec">
                     <div class="flexRow">
                         <div class="centerTechInput">
@@ -53,6 +69,7 @@
                     </div>
                 </div>                
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 =======
@@ -60,29 +77,25 @@
 >>>>>>> Integration
 
 >>>>>>> Integration
+=======
+    
+>>>>>>> master
                 <lightning:layout>
+                    
                     <div class="slds-m-around_small">
                         <div class="slds-page-header" role="banner">
-                            <div class="slds-align_absolute-center">
-                                <lightning:input label="Curriculum" value="{!v.cur.Name}" class="input"/>
-                                <div class="topicAddBtn">
-                                    <lightning:buttonIcon iconName="utility:dash" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.removeInputField}"/>              
-                                    <lightning:buttonIcon iconName="utility:add" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.addInputField}"/>
-                                </div>                                
+                            <div class="slds-align_absolute-center">            
+                                <lightning:button disabled="{!v.page == 1}" variant="brand" label="Previous Page" onclick="{! c.navigate }" />            
+                                <lightning:button disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next Page" onclick="{! c.navigate }" />
                             </div>
-                            <div class="slds-align_absolute-center pageBtn">
-                                <lightning:button disabled="{!v.page == 1}"  label="Previous Page" onclick="{! c.navigate }" />            
-                                <lightning:button disabled="{!v.page == v.pages}" aura:id="previousPage"  label="Next Page" onclick="{! c.navigate }" />
-                            </div>
-                        </div>
-                    <lightning:card class="side-card">
-                        <div class="recordperpage slds-align_absolute-center">
+                            <p class="slds-page-header__title slds-truncate">{!v.total} Items • page {!v.page} / {!v.pages}</p>
                             <ui:inputSelect aura:id="recordSize" label="Display Record Per Page: " change="{!c.onSelectChange}">
                                 <ui:inputSelectOption text="10" label="10" value="true"/>
                                 <ui:inputSelectOption text="15" label="15"/>
                                 <ui:inputSelectOption text="20" label="20"/>
                             </ui:inputSelect>
                         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                         
 <<<<<<< HEAD
@@ -93,17 +106,31 @@
 >>>>>>> Integration
                         <div aura:id="changeIt" class="filterContainer">
 >>>>>>> Integration
+=======
+                        
+                        <div aura:id="changeIt">
+>>>>>>> master
                             <aura:iteration items="{!v.filterList}" var="topic"> 
-                                <div  title="{!topic}">{!topic}</div>
+                                <div class="slds-truncate" title="{!topic}">{!topic}</div>
+                                    
                             </aura:iteration>
                         </div>
-                        <div class="slds-align_absolute-center">
-                            <lightning:button type="submit" name="Submit" label="Submit" class="slds-m-top_medium" onclick="{!c.submitButtonOnClick}"/>
-                        </div>                 
-                    </lightning:card>                             
+                       
                     </div>
-          
+         
+                    
                 </lightning:layout>                   
+                <lightning:layout horizontalAlign="center" verticalAlign="center">
+                    <lightning:layoutItem>
+                        <lightning:buttonIcon iconName="utility:dash" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.removeInputField}"/>
+                   
+                        <lightning:buttonIcon iconName="utility:add" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.addInputField}"/>
+                   
+                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium" onclick="{!c.submitButtonOnClick}"/>
+                    </lightning:layoutItem>     
+                </lightning:layout>
+            </div>
+            <div class ="containerRight">
             </div>
         </lightning:layout>   
 </aura:component>

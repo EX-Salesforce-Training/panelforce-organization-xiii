@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .THIS .input1{
     width: 195px;
     padding-left: 15px;
@@ -25,18 +26,28 @@
 .THIS .recordperpage{
     padding-bottom: 15px;
 >>>>>>> Integration
+=======
+.THIS {
+>>>>>>> master
 }
 
 
 .THIS .containerLeft{
     display:flex;
     flex-flow:column;
+    margin-right:150px;
+    background-color: aqua;
 }
 
 .THIS .comCon{
     text-align:center;
 }
 
+.THIS .flexRow{
+    display:flex;
+    align-items:center;
+  
+}
 
 .THIS .resizeButton{
     padding-top:5px;
@@ -44,10 +55,15 @@
 }
 
 .THIS .button{
-    text-align:right;
+    text-align:right;  
+    
 }
 
+.THIS .flex{
+    display:flex
+}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .THIS .input{
     display: flex;
@@ -62,20 +78,77 @@
 =======
 .THIS .changeMe10 {
     
+=======
+.THIS .centerTitle{
+    /*background-color:red;*/
+    height:51px;
+    width:75px;
+    display:flex;
+    align-items:center;
+>>>>>>> master
 }
 
-.THIS .changeMe15 {
+.THIS .centerOtherTitle{
+    /*background-color:red;*/
+    height:51px;
+    width:100px;
+    display:flex;
+    align-items:center;
+}
+
+.THIS .centerInput{
+    
+    padding-bottom:11px;
+    padding-left:250px;
+    width:315px;
     
 }
 
-.THIS .changeMe20 {
-    
+.THIS .centerTechInput{
+    /*background-color:blue;*/
+    padding-bottom:11px;
+    padding-left:20px;
+    width:340px;
 }
 
+.THIS .otherCon{
+    /*background-color: yellow;*/
+}
+
+.THIS .secondSec{
+    width:88%;
+}
+
+.THIS .comSec textarea{
+    height:150px;
+}
+
+.THIS .centerTechInput input{
+    text-align:right;
+}
+
+.THIS .mainContainer{
+   background-color:blue;
+   width:100%;
+}
+
+.THIS .input{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+
+}
+
+<<<<<<< HEAD
 .THIS .filterContainer{
 	display:flex;
     width:375px;
     flex-wrap:wrap;
  
 >>>>>>> Integration
+=======
+.THIS .listContainer{
+    display: flex;
+    flex-direction: row;
+>>>>>>> master
 }
