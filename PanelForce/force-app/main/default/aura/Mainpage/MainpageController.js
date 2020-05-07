@@ -1,6 +1,8 @@
 ({
 	navToView : function(component, event, helper) {
+		console.log('navtoview');
 		component.set("v.selectedTabId", "viewpanel");
+		component.set("v.createPanel", true);
 	},
 	navToRecord : function(component, event, helper) {
 		let method = component.get("c.getPanelByDateTime");
