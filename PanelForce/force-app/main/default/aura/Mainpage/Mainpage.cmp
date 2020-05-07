@@ -1,5 +1,7 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global">
+    <aura:attribute name="createPanel" type="boolean" default="false"/>
 
+    <aura:handler name="navToHomePage" event="c:NavigateToHomePage" action="{!c.navToView}"/>
 	<lightning:tabset>
         <lightning:tab label = "View Panels" id="viewpanel">
             <!---->
@@ -8,7 +10,12 @@
             <!---->
         </lightning:tab>
         <lightning:tab label = "Conduct a Panel" id="conductpanel">
-            
+            <aura:if isTrue="{!v.createPanel}">
+                <c:NewPanelSheet/>
+                <aura:set attribute="else">
+                    <c:RecordPanelData/>
+                </aura:set>
+            </aura:if>
         </lightning:tab>
         <lightning:tab label = "Create a Curriculum" id="createcurriculum">
             <c:CurriculumComp/>

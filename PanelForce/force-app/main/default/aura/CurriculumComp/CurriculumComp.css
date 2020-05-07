@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .THIS .input1{
     width: 195px;
     padding-left: 15px;
@@ -18,17 +18,8 @@
 .THIS .side-card{
 }
 
-<<<<<<< HEAD
-.THIS .button{
-    text-align:right;  
-    
-=======
 .THIS .recordperpage{
     padding-bottom: 15px;
->>>>>>> Integration
-=======
-.THIS {
->>>>>>> master
 }
 
 
@@ -63,8 +54,6 @@
     display:flex
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .THIS .input{
     display: flex;
     flex-direction: row;
@@ -75,17 +64,13 @@
 .THIS .listContainer{
     display: flex;
     flex-direction: row;
-=======
-.THIS .changeMe10 {
-    
-=======
+}
 .THIS .centerTitle{
     /*background-color:red;*/
     height:51px;
     width:75px;
     display:flex;
     align-items:center;
->>>>>>> master
 }
 
 .THIS .centerOtherTitle{
@@ -138,17 +123,13 @@
     padding: 5px;
 
 }
-
-<<<<<<< HEAD
 .THIS .filterContainer{
 	display:flex;
     width:375px;
     flex-wrap:wrap;
  
->>>>>>> Integration
-=======
+}
 .THIS .listContainer{
     display: flex;
     flex-direction: row;
->>>>>>> master
 }
