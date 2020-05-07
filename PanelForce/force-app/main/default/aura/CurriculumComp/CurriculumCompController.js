@@ -139,7 +139,7 @@
 		{"aura:id":"maxScore", 
         "label":"Max Score",
         "class": "slds-align_absolute-center slds-col slds-size_1-of-2" ,
-         "value": topicObjList[topicObjList.length-1].Max_Scores__c},
+         "value": topicObjList[topicObjList.length-1].Max_Score__c},
 		function(newInput, status, errorMessage){
 			if(status === "SUCCESS"){
 				var body = component.get("v.body");
@@ -147,7 +147,7 @@
                 component.set("v.body", body);
 
                 mainTopicList.push(newInput);
-                topicObjList[topicObjList.length-1].Max_Scores__c = newInput;
+                topicObjList[topicObjList.length-1].Max_Score__c = newInput;
 			}
         } );
 
