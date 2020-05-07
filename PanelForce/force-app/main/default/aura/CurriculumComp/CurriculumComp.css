@@ -1,20 +1,40 @@
+
 .THIS .body{
     font-family: futura-pt, sans-serif;
 }
-
-
 .THIS .input1{
     width: 195px;
     padding-left: 15px;
     
 }
 
+.THIS .topicAddBtn{
+    padding-top: 22px;
+    padding-left: 15px;
+}
+
+.THIS .pageBtn{
+    padding-top: 15px;
+    
+}
+
+.THIS .side-card{
+}
+
+.THIS .recordperpage{
+    padding-bottom: 15px;
+}
+
+.THIS .input1{
+    width: 195px;
+    padding-left: 15px;    
+}
+
 .THIS .revature-btn{
     background-color: #F26925;
     font-size: larger;
     border-color: #F26925;
-    font-family: futura-pt, sans-serif;
-    
+    font-family: futura-pt, sans-serif;    
 }
 
 .THIS .revature-btn2{
@@ -39,6 +59,23 @@
 
 .THIS .recordperpage{
     padding-bottom: 15px;
+}
+.THIS .input{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.THIS .listContainer{
+    display: flex;
+    flex-direction: row;
+}
+.THIS .centerTitle{
+    /*background-color:red;*/
+    height:51px;
+    width:75px;
+    display:flex;
+    align-items:center;
 }
 
 
@@ -73,10 +110,12 @@
 .THIS .changeMe20 {
     
 }
-
 .THIS .filterContainer{
 	display:flex;
     width:375px;
     flex-wrap:wrap;
- 
+}
+.THIS .listContainer{
+    display: flex;
+    flex-direction: row;
 }

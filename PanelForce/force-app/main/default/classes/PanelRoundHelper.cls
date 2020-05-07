@@ -1,4 +1,4 @@
-public with sharing class PanelRoundHelper {
+public class PanelRoundHelper {
     public static void incrementPanelRound(List<Panel__c> panels) {
         List<Id> contactIds = new List<Id>();
         for (Panel__c p: panels)
@@ -9,7 +9,7 @@ public with sharing class PanelRoundHelper {
             while (con == null && i < cons.size()) {
                 if (cons[i].Id == p.Contact__c)
                     con = cons[i];
-                    i++;
+                i++;
             }
             p.Panel_Round__c = con.Panels__r.size() + 1;
         }
