@@ -4,6 +4,9 @@
         <lightning:tab label = "View Panels" id="viewpanel">
             <!---->
         </lightning:tab>
+        <lightning:tab label = "View Panels by Associate" id="viewpanel">
+            <!---->
+        </lightning:tab>
         <lightning:tab label = "Conduct a Panel" id="conductpanel">
             
         </lightning:tab>

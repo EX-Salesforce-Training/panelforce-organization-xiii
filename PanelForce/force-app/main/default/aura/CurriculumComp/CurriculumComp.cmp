@@ -8,15 +8,12 @@
                                                                'Topic__c':'',
                                                                'Max_Score__c':''}"/>
 
-
-    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topics__c', 
+    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topic__c', 
                                                                 'Name':' ',
-                                                                'Max_Scores__c':''}"/>
+                                                                'Max_Score__c':''}"/>
 
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
     <aura:handler name="addTopics" action="{!c.addTopicHandler}" event="c:UpdateTopics"/>
-
-
     <aura:attribute name="mainTopicList" type="Aura.Component[]"/>
     <aura:attribute name="filterList" type="String[]"/>
     <aura:attribute name="topicObjList" type="Topic__c[]"/>
