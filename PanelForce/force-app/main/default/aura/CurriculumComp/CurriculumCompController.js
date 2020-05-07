@@ -81,7 +81,7 @@
 
         var newCurriculum = component.get("v.cur");
         newCurriculum.Topics__c = topics;
-        newCurriculum.Max_Score__c = maxscore;
+        newCurriculum.Max_Scores__c = maxscore;
         
         var action = component.get("c.createCurriculum");
         action.setParams({
@@ -121,7 +121,7 @@
         $A.createComponent("lightning:input",
 		{"aura:id":"topicName", 
         "label":"Topic Name",
-        "class": "input slds-col slds-size_1-of-2",
+        "class": "input1 slds-align_absolute-center slds-col slds-size_1-of-2",
         "value": topicObjList[topicObjList.length-1].Name},
 		function(newInput, status, errorMessage){
 			if(status === "SUCCESS"){
@@ -138,8 +138,13 @@
         $A.createComponent("lightning:input",
 		{"aura:id":"maxScore", 
         "label":"Max Score",
-        "class": "input slds-col slds-size_1-of-2" ,
+<<<<<<< HEAD
+        "class": "slds-align_absolute-center slds-col slds-size_1-of-2" ,
          "value": topicObjList[topicObjList.length-1].Max_Score__c},
+=======
+        "class": "input slds-col slds-size_1-of-2" ,
+         "value": topicObjList[topicObjList.length-1].Max_Scores__c},
+>>>>>>> master
 		function(newInput, status, errorMessage){
 			if(status === "SUCCESS"){
 				var body = component.get("v.body");
@@ -147,7 +152,7 @@
                 component.set("v.body", body);
 
                 mainTopicList.push(newInput);
-                topicObjList[topicObjList.length-1].Max_Score__c = newInput;
+                topicObjList[topicObjList.length-1].Max_Scores__c = newInput;
 			}
         } );
 
