@@ -12,5 +12,4 @@
     <navType>Standard</navType>
     <tabs>standard-Contact</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Contact_UtilityBar</utilityBar>
 </CustomApplication>
