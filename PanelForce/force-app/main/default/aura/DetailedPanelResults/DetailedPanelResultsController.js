@@ -15,19 +15,21 @@
     },
     
     GoBack : function(component, event, helper){
-        if(component.get(ContactReturn) == true){
-            var EditEvent = cmp.getEvent('ReturnPrevious2');
+        if(component.get("v.ContactReturn") == true){
+            var EditEvent = component.getEvent("ReturnPrevious2");
             EditEvent.fire(); 
         }
         else{
-            var EditEvent = cmp.getEvent('ReturnPrevious');
+            console.log("enter event 1");
+            var EditEvent = component.getEvent("ReturnPrevious");
+            console.log("test2");
             EditEvent.fire(); 
         }
     },
     
     EditEvent : function(component, event, helper){
         
-        var EditEvent = cmp.getEvent('EditEvent');
+        var EditEvent = component.getEvent('EditEvent');
         EditEvent.setParams({ "PanelToEditId" : panelId });
         EditEvent.fire(); 
     }
