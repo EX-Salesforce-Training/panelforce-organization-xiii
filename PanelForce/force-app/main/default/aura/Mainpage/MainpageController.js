@@ -9,6 +9,7 @@
 		method.setParams({"dt" : event.getParam("datetime"), "contactId" : event.getParam("contact")});
 		method.setCallback(this, function(response) {
 			if (response.getState() === "SUCCESS") {
+				console.log(response.getReturnValue());
 				component.set("v.panelId", response.getReturnValue());
 				
 				try {
