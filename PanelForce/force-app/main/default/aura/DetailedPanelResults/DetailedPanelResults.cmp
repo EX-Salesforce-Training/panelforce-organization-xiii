@@ -4,8 +4,12 @@
     <aura:attribute name="TopicsRecorded" type="Topic__c[]"/>
     <aura:attribute name="columns" type="List"/>
     <aura:attribute name="selectedPanelId" type="String"/>
+    <aura:attribute name="ContactReturn" type="boolean"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:registerEvent name="EditEvent" type="c:GoToEditEvent"/>
+    <aura:registerEvent name="ReturnPrevious" type="c:GoToPreviousPage"/>
+    <aura:registerEvent name="ReturnPrevious2" type="c:GoToPreviousContactPage"/>
     
     <lightning:card>
         <lightning:card>
@@ -151,18 +155,15 @@
             </div>
            </div>
         </lightning:card >
-        <!--
         <div class="slds-clearfix">
   		<div class="slds-float_right">
         
         <lightning:buttonGroup class = "buttonClass">
-            <lightning:button variant="destructive-text" label="Cancel" onclick="{! c.cancelClick }"/>
-            <lightning:button variant="brand-outline" label="Previous" onclick="{! c.previousClick }"/>
-            <lightning:button variant="brand-outline" label="Next" onclick="{! c.nextClick }"/>
+            <lightning:button variant="destructive-text" label="Return To List" onclick="{!c.GoBack }"/>
+            <lightning:button variant="brand-outline" label="Edit Panel" onclick="{!c.EditEvent }"/>
         </lightning:buttonGroup>
             </div>
         </div>
--->
     </lightning:card>
     
 </aura:component>
