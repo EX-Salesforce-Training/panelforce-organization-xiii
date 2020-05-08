@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    
+    <aura:attribute name="detailedPanelResultsIsVisible" type="Boolean" default="false"/>
+    <aura:attribute name="panelId" type="String"/>
+    
+    <aura:handler name="PanelEvent" event="c:NavigateToDetailedPanelResults" action="{!c.ChangeToPanelResultsComponent}"/>
+    
+    <aura:if isTrue="{!v.detailedPanelResultsIsVisible}">
+        <c:DetailedPanelResults selectedPanelId="{!v.panelId}"/>
+        <aura:set attribute="else">
+            <c:FilterPanelResultsByName/>
+        </aura:set>
+    </aura:if>
+    
+</aura:component>

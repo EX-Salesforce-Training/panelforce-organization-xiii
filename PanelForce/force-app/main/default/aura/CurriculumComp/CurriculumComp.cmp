@@ -1,0 +1,71 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="CurriculumController">
+    
+    <aura:attribute name="options" type="List" default="[
+    {'label': '', 'value': 'checked'}]"/>
+    <aura:attribute name="value" type="List" default="option1"/>
+    <aura:attribute name="cur" type="Curriculum__c" default="{'sObjectType':'Curriculum__c', 
+                                                               'Name':'',
+                                                               'Topics__c':'',
+                                                               'Max_Scores__c':''}"/>
+
+    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topic__c', 
+                                                                'Name':' ',
+                                                                'Max_Score__c':''}"/>
+  
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>                                                           
+    
+    <aura:attribute name="mainTopicList" type="String[]"/>
+    <aura:attribute name="filterList" type="String[]"/>
+    <aura:attribute name="topicObjList" type="Topic__c[]"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>
+
+    <lightning:layout horizontalAlign="center" >
+            <div class ="containerLeft">
+                              
+
+                <lightning:layout>
+                    <div class="slds-m-around_small">
+                        <div class="slds-page-header" role="banner" style="background-color: #fff;">
+                            <div class="slds-align_absolute-center">
+                                <lightning:input label="Curriculum Name" value="{!v.cur.Name}" class="input"/>
+                                <div class="topicAddBtn">
+
+                                    <!-- <button class="slds-button slds-button_brand revature-btn" onclick="{!c.removeInputField}">-</button>
+                                    <button class="slds-button slds-button_brand revature-btn" onclick="{!c.addInputField}">+</button> -->
+
+                                    <lightning:buttonIcon class="revature-btn" iconName="utility:dash" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.removeInputField}"/>              
+                                    <lightning:buttonIcon class="revature-btn" iconName="utility:add" variant="brand" alternativeText="Settings" iconClass="dark" onclick="{!c.addInputField}"/>
+                                </div>                                
+                            </div>
+                            <div class="slds-align_absolute-center pageBtn">
+
+                                <lightning:button class="revature-btn2" disabled="{!v.page == 1}"  label="Previous Page" onclick="{! c.navigate }" />            
+                                <lightning:button class="revature-btn2" disabled="{!v.page == v.pages}" aura:id="previousPage"  label="Next Page" onclick="{! c.navigate }" />
+                            </div>
+                        </div>
+                    <lightning:card class="side-card">
+                        <div class="recordperpage slds-align_absolute-center">
+                            <ui:inputSelect aura:id="recordSize" label="Topics Per Page: " change="{!c.onSelectChange}">
+                                <ui:inputSelectOption text="10" label="10" value="true"/>
+                                <ui:inputSelectOption text="15" label="15"/>
+                                <ui:inputSelectOption text="20" label="20"/>
+                            </ui:inputSelect>
+                        </div>
+                            <!-- <p class="slds-page-header__title slds-truncate slds-align_absolute-center">{!v.total} Items • page {!v.page} / {!v.pages}</p> -->
+                        <div aura:id="changeIt" class="filterContainer">
+                            <aura:iteration items="{!v.filterList}" var="topic"> 
+                                <div  title="{!topic}">{!topic}</div>
+                            </aura:iteration>
+                        </div>
+                        <div class="slds-align_absolute-center">
+                            <lightning:button type="submit" name="Submit" label="Submit" class="slds-m-top_medium revature-btn2" onclick="{!c.submitButtonOnClick}"/>
+                        </div>                 
+                    </lightning:card>                             
+                    </div>
+          
+                </lightning:layout>                   
+            </div>
+        </lightning:layout>   
+</aura:component>

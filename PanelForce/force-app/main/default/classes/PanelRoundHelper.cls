@@ -1,4 +1,4 @@
-public with sharing class PanelRoundHelper {
+public class PanelRoundHelper {
     public static void incrementPanelRound(List<Panel__c> panels) {
         System.Debug('THERE');
         List<Id> contactIds = new List<Id>();

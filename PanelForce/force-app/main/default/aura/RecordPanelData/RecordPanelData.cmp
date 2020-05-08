@@ -30,7 +30,6 @@
             </lightning:card>
         </aura:iteration>
         
-
         <!--Here, allow edit of Overall feedback, Client Interview Ready, and Panel Comments using recordEditForm inputField-->
         <span class = "LastThree"><lightning:inputField fieldName ="Overall_Feedback__c"/></span>
         <span class = "LastThree"><lightning:inputField fieldName ="Client_Interview_Ready__c"/></span>
