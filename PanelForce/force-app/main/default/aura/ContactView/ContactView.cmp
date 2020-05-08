@@ -12,6 +12,8 @@
         
         <lightning:card>
             
+            <div class="TitleText">Contact Info</div>
+            
             <lightning:recordForm
                                   recordId="{!v.selectedContactId}"
                                   objectApiName="Contact"
@@ -19,10 +21,14 @@
                                   mode="readonly"/>
             
             <br/>
-            <div class="Title"> Panel History</div>
+            <div class="TitleText"> Panel History</div>
             
             <c:PanelHistory selectedContactId="{!v.selectedContactId}"/>
-            <lightning:button variant="destructive-text" label="Return To List" onclick="{!c.GoBack}"/>
+            <div class="slds-clearfix">
+                <div class="slds-float_right slds-m-right--medium">
+                    <lightning:button class="buttonColor" label="Return To List" onclick="{!c.GoBack}"/>
+                </div>
+            </div>
             
         </lightning:card>
         
