@@ -4,9 +4,10 @@
     <aura:attribute name="panelId" type="String"/>
     
     <aura:handler name="PanelEvent" event="c:NavigateToDetailedPanelResults" action="{!c.ChangeToPanelResultsComponent}"/>
+    <aura:handler name="ReturnPrevious" event="c:GoToPreviousPage" action="{!c.ChangeView}"/>
     
     <aura:if isTrue="{!v.detailedPanelResultsIsVisible}">
-        <c:DetailedPanelResults selectedPanelId="{!v.panelId}"/>
+        <c:DetailedPanelResults selectedPanelId="{!v.panelId}" ContactReturn="false"/>
         <aura:set attribute="else">
             <c:FilterPanelResultsByName/>
         </aura:set>
