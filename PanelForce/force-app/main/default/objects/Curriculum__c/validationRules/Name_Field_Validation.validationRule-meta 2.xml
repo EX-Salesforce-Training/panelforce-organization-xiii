@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Field_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>Name  =  Id</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Curriculum Name Field cannot be null</errorMessage>
+</ValidationRule>

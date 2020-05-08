@@ -81,7 +81,7 @@
 
         var newCurriculum = component.get("v.cur");
         newCurriculum.Topics__c = topics;
-        newCurriculum.Max_Score__c = maxscore;
+        newCurriculum.Max_Scores__c = maxscore;
         
         var action = component.get("c.createCurriculum");
         action.setParams({
