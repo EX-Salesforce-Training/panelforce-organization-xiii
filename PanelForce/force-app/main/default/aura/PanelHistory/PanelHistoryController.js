@@ -6,9 +6,10 @@
         ]
        
         component.set('v.mycolumns', [
-            { label: 'Panel History', fieldName: 'Name', type: 'text' },
+            { label: 'Panel Number', fieldName: 'Name', type: 'text' },
             { label: 'Score', fieldName: 'Total_Score__c', type: 'number' },
             { label: 'Max Score', fieldName: 'Max_Score__c', type: 'number' },
+            { label: 'Topics To Repanel', fieldName: 'Topics_to_be_Repaneled__c', type: 'number' },
             { type: 'action', typeAttributes: { rowActions: actions } }
         ]);
         
