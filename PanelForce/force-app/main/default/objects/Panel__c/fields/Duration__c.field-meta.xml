@@ -3,10 +3,42 @@
     <fullName>Duration__c</fullName>
     <externalId>false</externalId>
     <label>Duration</label>
-    <precision>18</precision>
-    <required>false</required>
-    <scale>0</scale>
+    <required>true</required>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
-    <unique>false</unique>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>90</fullName>
+                <default>true</default>
+                <label>90</label>
+            </value>
+            <value>
+                <fullName>75</fullName>
+                <default>false</default>
+                <label>75</label>
+            </value>
+            <value>
+                <fullName>60</fullName>
+                <default>false</default>
+                <label>60</label>
+            </value>
+            <value>
+                <fullName>45</fullName>
+                <default>false</default>
+                <label>45</label>
+            </value>
+            <value>
+                <fullName>30</fullName>
+                <default>false</default>
+                <label>30</label>
+            </value>
+            <value>
+                <fullName>15</fullName>
+                <default>false</default>
+                <label>15</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
 </CustomField>
