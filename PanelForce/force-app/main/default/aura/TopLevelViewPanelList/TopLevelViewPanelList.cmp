@@ -8,7 +8,7 @@
     <aura:if isTrue="{!v.detailedPanelResultsIsVisible}">
         <c:DetailedPanelResults selectedPanelId="{!v.panelId}"/>
         <aura:set attribute="else">
-            <c:FilterPanelResultsByName/>
+            <!--<c:FilterPanelResultsByName/> -->
         </aura:set>
     </aura:if>
     
