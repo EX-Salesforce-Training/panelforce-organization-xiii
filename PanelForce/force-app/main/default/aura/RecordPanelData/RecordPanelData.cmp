@@ -11,7 +11,7 @@
     <aura:attribute name="topicObjList" type="String[]"/>
     
     <lightning:card>
-    <lightning:recordEditForm aura:id = "RecordDataID" recordId="a011g00000C96YuAAJ" objectApiName="Panel__c" onload="{!c.recordLoaded}">
+    <lightning:recordEditForm aura:id = "RecordDataID" recordId="{!v.id}" objectApiName="Panel__c" onload="{!c.recordLoaded}">
         <lightning:messages />
         <span class = "inputStuff"><lightning:outputField fieldName ="Contact__c"/></span>
         <span class = "inputStuff"><lightning:outputField value="{!v.curriculumVal}"  fieldName ="Template__c" /> </span>

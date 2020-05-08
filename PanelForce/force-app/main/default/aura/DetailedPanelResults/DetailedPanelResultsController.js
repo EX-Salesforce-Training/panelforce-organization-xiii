@@ -30,7 +30,7 @@
     EditEvent : function(component, event, helper){
         
         var EditEvent = component.getEvent('EditEvent');
-        EditEvent.setParams({ "PanelToEditId" : panelId });
+        EditEvent.setParams({ "PanelToEditId" : component.get("v.selectedPanelId") });
         EditEvent.fire(); 
     }
 })
