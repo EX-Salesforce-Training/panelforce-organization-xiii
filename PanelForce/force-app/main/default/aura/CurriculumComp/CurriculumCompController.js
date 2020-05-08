@@ -27,8 +27,7 @@
 
         var topicNames = component.find("topicName");
         var topicMaxScores = component.find("maxScore");
-        
-        
+               
         console.log(topicMaxScores);
         
         var topics = "";
@@ -39,7 +38,6 @@
         for(i=0; i < topicNames.length; i++){
 			console.log(topicNames[i].get("v.value"));
             console.log(topicMaxScores[i].get("v.value"));
-            //console.log("SecureComponentRef: InteropComponent: markup://lightning:input{ key: {\"namespace\":\"c\"} }");
             
             if(topics == ""){
                 if(topicNames[i].get("v.value")!=""){
@@ -81,7 +79,7 @@
 
         var newCurriculum = component.get("v.cur");
         newCurriculum.Topics__c = topics;
-        newCurriculum.Max_Score__c = maxscore;
+        newCurriculum.Max_Scores__c = maxscore;
         
         var action = component.get("c.createCurriculum");
         action.setParams({
@@ -98,14 +96,6 @@
         $A.enqueueAction(action);
     },
     addInputField : function(component, event , helper){
-/*
-        var page = component.get("v.page") || 1;
-        // get the select option (drop-down) values.   
-        var recordToDisply = component.find("recordSize").get("v.value");
-        // call the helper function   
-        console.log("Page: " + page + "RecordNum: " + recordToDisply)
-        helper.getTopics(component, page, recordToDisply);
-        */
 
         var mainTopicList=component.get("v.mainTopicList");
         var topic = component.get("v.topicObj");

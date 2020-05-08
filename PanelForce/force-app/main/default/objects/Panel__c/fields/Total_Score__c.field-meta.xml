@@ -3,7 +3,7 @@
     <fullName>Total_Score__c</fullName>
     <externalId>false</externalId>
     <label>Total Score</label>
-    <summarizedField>Topic__c.Max_Score__c</summarizedField>
+    <summarizedField>Topic__c.Actual_Score__c</summarizedField>
     <summaryForeignKey>Topic__c.Panel__c</summaryForeignKey>
     <summaryOperation>sum</summaryOperation>
     <trackTrending>false</trackTrending>
