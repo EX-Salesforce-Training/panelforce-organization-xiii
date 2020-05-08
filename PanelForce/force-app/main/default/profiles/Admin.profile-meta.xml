@@ -43,11 +43,6 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Curriculum__c.Max_Score__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Curriculum__c.Max_Scores__c</field>
         <readable>true</readable>
     </fieldPermissions>
