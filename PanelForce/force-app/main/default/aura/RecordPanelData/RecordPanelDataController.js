@@ -29,6 +29,7 @@
         //Show a toast to inform the user that everything is saved correctly. 
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
+            "type" : "success",
             "title": "Success!",
             "message": "The record has been updated successfully."
         });
@@ -61,7 +62,7 @@
         });
         $A.enqueueAction(action);
         //Fire event to return to home page. 
-        let navigateHome = component.getEvent("e.c:NavigateToHomePage");
+        let navigateHome = component.getEvent("NavigateToHomePage");
         navigateHome.fire();
 
     }
