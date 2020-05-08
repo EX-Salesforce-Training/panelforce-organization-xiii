@@ -1,3 +1,3 @@
-<aura:application extends="force:slds">
-    <c:Mainpage/>
+<aura:application >
+    <c:DetailedPanelResults/>
 </aura:application>

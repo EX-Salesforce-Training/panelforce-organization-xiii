@@ -3,8 +3,9 @@
     <fullName>Max_Score__c</fullName>
     <externalId>false</externalId>
     <label>Max Score</label>
+    <summarizedField>Topic__c.Max_Score__c</summarizedField>
     <summaryForeignKey>Topic__c.Panel__c</summaryForeignKey>
-    <summaryOperation>count</summaryOperation>
+    <summaryOperation>sum</summaryOperation>
     <trackTrending>false</trackTrending>
     <type>Summary</type>
 </CustomField>

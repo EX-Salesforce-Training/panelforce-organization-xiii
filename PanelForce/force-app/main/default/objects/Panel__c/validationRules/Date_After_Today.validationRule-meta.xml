@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Date_After_Today</fullName>
-    <active>true</active>
-    <errorConditionFormula>Date_Time__c &lt;= NOW()</errorConditionFormula>
-    <errorMessage>Time of panel must be after current time.</errorMessage>
-</ValidationRule>

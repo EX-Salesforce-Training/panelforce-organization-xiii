@@ -1,8 +1,8 @@
 public class TechnologyListController {
 	
     @AuraEnabled
-    public static List<Topic__c> getTopics(){
-        return [SELECT Name, Actual_Score__c FROM Topic__c];
+    public static List<Topic__c> getTopics(Decimal pageNumber, Integer recordsToDisplay){
+        return [SELECT Name, Max_Score__c FROM Topic__c];
     }
 }
 /*public with sharing class samplePagerCtrl {
