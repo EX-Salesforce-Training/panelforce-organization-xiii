@@ -1,36 +1,33 @@
 .THIS {
 }
 
-.THIS .container{
+.THIS .container {
     display:flex;
     flex-flow:column;
 }
-
-
-
-.THIS .flexRow{
+.THIS .flexRow {
     display:flex;
     align-items:center;
     
 }
 
-.THIS .flex{
+.THIS .flex{ 
     display:flex
 }
 
-.THIS .centerTitle{
+.THIS .centerTitle {
     background-color:red;
     height:51px;
     display:flex;
     align-items:center;
 }
 
-.THIS .centerInput{
+.THIS .centerInput {
     background-color:blue;
     display:flex;
     align-items:top;
 }
 
-.THIS .otherCon{
+.THIS .otherCon {
     background-color: yellow;
 }

@@ -7,10 +7,10 @@
     <aura:handler name="navToHomePage" event="c:NavigateToHomePage" action="{!c.navToView}"/>
 	<lightning:tabset selectedTabId="{!v.selectedTabId}">
         <lightning:tab label = "View Panels" id="viewpanel">
-            <!--<c:TopLevelViewPanelList>-->
+            <c:TopLevelViewPanelList/>
         </lightning:tab>
         <lightning:tab label = "View Panels by Associate" id="viewpanel2">
-            <!--<c:TopLevelViewContactList>-->
+            <c:TopLevelViewContactList/>
         </lightning:tab>
         <lightning:tab label = "Conduct a Panel" id="conductpanel">
             <aura:if isTrue="{!v.createPanel}">

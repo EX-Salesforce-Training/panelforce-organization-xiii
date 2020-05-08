@@ -1,7 +1,26 @@
+.THIS .body{
+    font-family: futura-pt, sans-serif;
+}
+
 
 .THIS .input1{
     width: 195px;
     padding-left: 15px;
+    
+}
+
+.THIS .revature-btn{
+    background-color: #F26925;
+    font-size: larger;
+    border-color: #F26925;
+    font-family: futura-pt, sans-serif;
+    
+}
+
+.THIS .revature-btn2{
+    color: #F26925;
+    font-size: medium;
+    font-family: futura-pt, sans-serif;
     
 }
 
@@ -26,19 +45,12 @@
 .THIS .containerLeft{
     display:flex;
     flex-flow:column;
-    margin-right:150px;
-    background-color: aqua;
 }
 
 .THIS .comCon{
     text-align:center;
 }
 
-.THIS .flexRow{
-    display:flex;
-    align-items:center;
-  
-}
 
 .THIS .resizeButton{
     padding-top:5px;
@@ -46,90 +58,25 @@
 }
 
 .THIS .button{
-    text-align:right;  
-    
-}
-
-.THIS .flex{
-    display:flex
-}
-
-.THIS .input{
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-
-}
-
-.THIS .listContainer{
-    display: flex;
-    flex-direction: row;
-}
-.THIS .centerTitle{
-    /*background-color:red;*/
-    height:51px;
-    width:75px;
-    display:flex;
-    align-items:center;
-}
-
-.THIS .centerOtherTitle{
-    /*background-color:red;*/
-    height:51px;
-    width:100px;
-    display:flex;
-    align-items:center;
-}
-
-.THIS .centerInput{
-    
-    padding-bottom:11px;
-    padding-left:250px;
-    width:315px;
-    
-}
-
-.THIS .centerTechInput{
-    /*background-color:blue;*/
-    padding-bottom:11px;
-    padding-left:20px;
-    width:340px;
-}
-
-.THIS .otherCon{
-    /*background-color: yellow;*/
-}
-
-.THIS .secondSec{
-    width:88%;
-}
-
-.THIS .comSec textarea{
-    height:150px;
-}
-
-.THIS .centerTechInput input{
     text-align:right;
 }
 
-.THIS .mainContainer{
-   background-color:blue;
-   width:100%;
+
+.THIS .changeMe10 {
+    
 }
 
-.THIS .input{
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-
+.THIS .changeMe15 {
+    
 }
+
+.THIS .changeMe20 {
+    
+}
+
 .THIS .filterContainer{
 	display:flex;
     width:375px;
     flex-wrap:wrap;
  
-}
-.THIS .listContainer{
-    display: flex;
-    flex-direction: row;
 }
