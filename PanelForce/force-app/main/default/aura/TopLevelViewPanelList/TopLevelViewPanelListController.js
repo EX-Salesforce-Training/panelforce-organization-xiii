@@ -4,5 +4,8 @@
         var info = event.getParam("panelId");
         component.set("v.panelId", info);
         component.set("v.detailedPanelResultsIsVisible", true);
+    },
+    ChangeView : function(component, event, helper){
+        component.set("v.detailedPanelResultsIsVisible", false);
     }
 })
