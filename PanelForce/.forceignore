@@ -3,10 +3,7 @@
 #
 
 package.xml
-force-app/main/default/layouts
-force-app\main\default\aura\FilterPanelResultsByName
-force-app\main\default\profiles
-force-app\main\default\tabs
+
 
 # LWC configuration files
 **/jsconfig.json
