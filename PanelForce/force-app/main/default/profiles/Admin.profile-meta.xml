@@ -244,10 +244,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Test</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Topic__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

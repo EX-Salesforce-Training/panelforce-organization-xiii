@@ -1,4 +1,0 @@
-<aura:event type="COMPONENT" description="Event template">
-    <aura:attribute name="contact" type="id"/>
-    <aura:attribute name="datetime" type="datetime"/>
-</aura:event>
