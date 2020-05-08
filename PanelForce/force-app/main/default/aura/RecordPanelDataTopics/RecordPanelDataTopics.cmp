@@ -26,7 +26,7 @@
                 </div>
                 <div class ="flexRow">
                     <span>Repanel:</span>
-            		<lightning:input type="checkbox" value="{!v.topic.Repanel__c}"/>
+            		<lightning:input type="checkbox" checked="{!v.topic.Repanel__c}"/>
             </div></div>
             <div class="comCon">
                 <span>Comments:</span>

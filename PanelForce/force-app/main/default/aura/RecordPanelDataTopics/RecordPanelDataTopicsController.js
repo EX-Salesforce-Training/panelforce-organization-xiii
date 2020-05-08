@@ -13,4 +13,5 @@
         component.set("v.topicScore",topicScore);
         */
     }
+    
 })

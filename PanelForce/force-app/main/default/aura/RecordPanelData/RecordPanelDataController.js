@@ -39,6 +39,11 @@
         var action = component.get("c.updatePanelTopics");
         var panelID = component.get("v.id");
         var topics = component.get("v.topics");
+
+
+        for(var i = 0;i<topics.length;i++){
+            console.log(topics[i]);
+        }
         
         action.setParams({
             "panelId": "a011g00000C96YuAAJ",
