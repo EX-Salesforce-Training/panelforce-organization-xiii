@@ -1,20 +1,20 @@
-({
+({ //Load the specific panel to be displayed.
     recordLoaded : function(component, event, helper) {
-        
+        //access panel Id from the component view and the getTopics function in Apex controller 
         var action = component.get("c.getTopics");
         var id = component.get("v.id");
- 
+        //Pass unique panel Id into getTopics method in Apex Controller.
         action.setParams({
-            "panelID": "a011g00000C96YuAAJ"
+            "panelID": id
         });
-
+        //Usual Callback stuff. Update topics in the component view. 
         action.setCallback(this, function(response){
 
             if(response.getState() === "SUCCESS"){
 
                 var topics = response.getReturnValue();
-
-                console.log(topics);
+                
+                //console.log(topics);
                 component.set("v.topics",topics);
             }
             else{
@@ -23,10 +23,10 @@
         });
         $A.enqueueAction(action);
     },
-
+    //Update and save the modified panel and related topic records. 
     handleSaveRecord :function(component,event,helper){  
         
-        
+        //Show a toast to inform the user that everything is saved correctly. 
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
             "title": "Success!",
@@ -34,22 +34,23 @@
         });
         toastEvent.fire();
 
-        /////UPDATE THE TOPICS ASSOCIATED 
-
+        //Prime the updatePanelTopics method in the Apex controller. 
+        //Acquire the attributes from the component view. 
         var action = component.get("c.updatePanelTopics");
         var panelID = component.get("v.id");
         var topics = component.get("v.topics");
 
-
+        /*
         for(var i = 0;i<topics.length;i++){
             console.log(topics[i]);
-        }
-        
+        }*/
+
+        //Pass panel Id and its associated topics into Apex controller method. 
         action.setParams({
-            "panelId": "a011g00000C96YuAAJ",
+            "panelId": panelID,
             "topics" : topics
         });
-
+        //Usual callback stuff. 
         action.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
                 
@@ -59,51 +60,9 @@
             }
         });
         $A.enqueueAction(action);
-
-    },
-    
-    updateTopic :function(component,event,helper){ 
-        
-        var topicList = component.get("v.topics");
-        var cur = component.get("v.curriculumVal");
-        var topicObjList = component.get("v.topicObjList");
-
-        component.set("v.topicObjList",[]);
- 
-        if(cur != ""){
-            console.log("THIS IS VALUE: " + cur);
-
-            var action = component.get("c.getTopics");
-            action.setParams({
-                "curId": cur.toString()
-            });
-            action.setCallback(this, function(response){
-                if(response.getState() === "SUCCESS"){
-                    var curic = response.getReturnValue();
-                    
-                    console.log(curic);
-                    var topicNames = curic.Topics__c.split(",");
-                    var topicScores = curic.Max_Scores__c.split(",");
-
-                    //var topic = component.get("v.topic");
-                    
-                    console.log(topicNames + " " + topicScores);
-                    for(var i=0;i<topicNames.length;i++){
-
-                        var name = topicNames[i];
-                        var score = topicScores[i];
-                        topicObjList.push(name+","+score);
-
-                    }
-
-                    component.set("v.topicObjList",topicObjList);
-                }
-                else{
-                    console.log("Error " + response.getState());
-                }
-            });
-            $A.enqueueAction(action);
-        }
+        //Fire event to return to home page. 
+        let navigateHome = component.getEvent("e.c:NavigateToHomePage");
+        navigateHome.fire();
 
     }
 
