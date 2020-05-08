@@ -69,10 +69,6 @@
                 <field>Max_Score__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Max_Scores__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Placement__c</field>
             </layoutItems>
