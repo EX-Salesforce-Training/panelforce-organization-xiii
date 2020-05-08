@@ -1,15 +1,16 @@
 <aura:component>
+    <!--Attributes for each topic field. Including the topic object itself.-->
     <aura:attribute name="topic" type="Topic__c"/>
     <aura:attribute name="topicObj" type="String"/>
     <aura:attribute name="topicName" type="String"/>
     <aura:attribute name="topicScore" type="String"/>
-
     <aura:attribute name="topicActualScore" type="Integer"/>
     <aura:attribute name="topicComments" type="String"/>
     <aura:attribute name="topicRepanel" type="Boolean"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    
+    <!--View each Topic field for edit. Name and Max Score display only.
+        Modify Actual Score, Repanel, and Coments field. -->
 	<div class ="container">
             <div class="flexRow">
                 <span class="centerTitle">Technology:</span>
