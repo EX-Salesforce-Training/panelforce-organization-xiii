@@ -1,2 +1,10 @@
-.THIS {
+.THIS.inputStuff {
+    background-color: azure;
+    flex: auto;
+
+}
+
+.THIS.LastThree{
+    background-color: bisque;
+    flex:auto;
 }

@@ -1,35 +1,36 @@
 <aura:component>
     <aura:attribute name="topic" type="Topic__c"/>
+    <aura:attribute name="topicObj" type="String"/>
+    <aura:attribute name="topicName" type="String"/>
+    <aura:attribute name="topicScore" type="String"/>
 
-    <aura:attribute name="options" type="List" default="[{'label': '', 'value': 'option1'}]"/>
-    <aura:attribute name="value" type="List" default="option1"/>
+    <aura:attribute name="topicActualScore" type="Integer"/>
+    <aura:attribute name="topicComments" type="String"/>
+    <aura:attribute name="topicRepanel" type="Boolean"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     
 	<div class ="container">
             <div class="flexRow">
-                <span class="centerTitle">Technology</span>
-                <div class="centerInput">
-                    <lightning:input/>
-            </div></div>
+                <span class="centerTitle">Technology:</span>
+                <span class="">{!v.topic.Name}</span>
+            </div>
             <div class="otherCon">
                 <div class ="flexRow">
-                    <span>Max Score</span>
-                    <lightning:input/>
+                    <span>Max Score:</span>
+                    <span>{!v.topic.Max_Score__c}</span>
                 </div>
                 <div class ="flexRow">
-                    <span>Actual Score</span>
-                    <lightning:input/>
+                    <span>Actual Score:</span>
+                    <lightning:input type="number" value="{!v.topic.Actual_Score__c}"/>
                 </div>
                 <div class ="flexRow">
-                    <span>Repanel</span>
-            		<lightning:checkboxGroup name="Checkbox Group"
-                        label=""
-                        options="{! v.options }"
-                        value="{! v.value }"
-                        onchange="{! c.handleChange }"/>
+                    <span>Repanel:</span>
+            		<lightning:input type="checkbox" checked="{!v.topic.Repanel__c}"/>
             </div></div>
             <div class="comCon">
-				<span>Comments</span>
-                <lightning:input/>
-                <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium"/>
+                <span>Comments:</span>
+                <lightning:input type = "String" value = "{!v.topic.Comments__c}"/>
+
     </div></div>	        
 </aura:component>
