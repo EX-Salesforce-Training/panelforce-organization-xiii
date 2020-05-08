@@ -16,7 +16,7 @@ public class CurriculumControllerTest {
 
         Curriculum__c curr = new Curriculum__c();
         curr.Name = 'Test';
-        curr.Max_Score__c = '34,56,34';
+        curr.Max_Scores__c = '34,56,34';
         curr.Topics__c = 'Tech1,Tech2,Tech3';
 
         Curriculum__c curr2 = new Curriculum__c();
@@ -34,9 +34,9 @@ public class CurriculumControllerTest {
         // }
         
 
-        Curriculum__c testcurr = [SELECT Id, Name, Max_Score__c FROM Curriculum__c LIMIT 1];
+        Curriculum__c testcurr = [SELECT Id, Name, Max_Scores__c FROM Curriculum__c LIMIT 1];
 
-        system.assertEquals(curr.Max_Score__c, testcurr.Max_Score__c);
+        system.assertEquals(curr.Max_Scores__c, testcurr.Max_Scores__c);
         system.assertEquals(curr.Name, testcurr.Name);
         System.assertEquals(StatusCode.FIELD_CUSTOM_VALIDATION_EXCEPTION, CurriculumController.code);
     

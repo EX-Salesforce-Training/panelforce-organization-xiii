@@ -5,10 +5,10 @@
     <aura:attribute name="value" type="List" default="option1"/>
     <aura:attribute name="cur" type="Curriculum__c" default="{'sObjectType':'Curriculum__c', 
                                                                'Name':'',
-                                                               'Topic__c':'',
-                                                               'Max_Score__c':''}"/>
+                                                               'Topics__c':'',
+                                                               'Max_Scores__c':''}"/>
 
-    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topics__c', 
+    <aura:attribute name="topicObj" type="Topic__c" default="{'sObjectType':'Topic__c', 
                                                                 'Name':' ',
                                                                 'Max_Score__c':''}"/>
   
@@ -61,7 +61,6 @@
                         </div>
                         <div class="slds-align_absolute-center">
                             <lightning:button type="submit" name="Submit" label="Submit" class="slds-m-top_medium revature-btn2" onclick="{!c.submitButtonOnClick}"/>
-                            <!-- <button class="slds-button slds-button_neutral revature-btn2 slds-m-top_medium" onclick="{!c.submitButtonOnClick}">Submit</button> -->
                         </div>                 
                     </lightning:card>                             
                     </div>
