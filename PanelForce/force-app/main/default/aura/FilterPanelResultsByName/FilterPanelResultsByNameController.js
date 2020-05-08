@@ -38,7 +38,7 @@
        
         switch (action.name){
             case 'View_Panel_Results':
-                var PanelNavEvent = cmp.getEvent('PanelEvent');
+                var PanelNavEvent = cmp.getEvent('ReturnEvent');
                 PanelNavEvent.setParams({ "panelId" : panelId });
                 PanelNavEvent.fire();                
                 break;

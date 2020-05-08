@@ -14,18 +14,21 @@
         helper.getTopics(component,event,helper,info);
     },
     
-    cancelClick : function(component, event, helper){
-        
-        alert("You clicked: " + event.getSource().get("v.label"));
+    GoBack : function(component, event, helper){
+        if(component.get(ContactReturn) == true){
+            var EditEvent = cmp.getEvent('ReturnPrevious2');
+            EditEvent.fire(); 
+        }
+        else{
+            var EditEvent = cmp.getEvent('ReturnPrevious');
+            EditEvent.fire(); 
+        }
     },
     
-    previousClick : function(component, event, helper){
+    EditEvent : function(component, event, helper){
         
-        alert("You clicked: " + event.getSource().get("v.label"));
-    },
-    
-    nextClick : function(component, event, helper){
-        
-        alert("You clicked: " + event.getSource().get("v.label"));
+        var EditEvent = cmp.getEvent('EditEvent');
+        EditEvent.setParams({ "PanelToEditId" : panelId });
+        EditEvent.fire(); 
     }
 })

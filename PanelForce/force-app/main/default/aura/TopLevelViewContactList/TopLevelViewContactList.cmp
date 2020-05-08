@@ -6,6 +6,7 @@
     <aura:attribute name="columns" type="List"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="ReturnPreviousEvent3" event="c:GoToPreviousPage" action="{!c.ChangeView}"/>
     
     <lightning:card>
         
@@ -19,7 +20,7 @@
                                  onrowaction="{!c.handleRowAction}"/>
             
             <aura:set attribute="else">
-                <c:ContactView selectedContactId="{!v.contactId}"/>
+                <c:ContactView selectedContactId="{!v.contactId}" />
             </aura:set>
             
         </aura:if>
