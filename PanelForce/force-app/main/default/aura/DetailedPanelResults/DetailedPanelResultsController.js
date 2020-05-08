@@ -14,23 +14,18 @@
         helper.getTopics(component,event,helper,info);
     },
     
-    GoBack : function(component, event, helper){
-        if(component.get("v.ContactReturn") == true){
-            var EditEvent = component.getEvent("ReturnPrevious2");
-            EditEvent.fire(); 
-        }
-        else{
-            console.log("enter event 1");
-            var EditEvent = component.getEvent("ReturnPrevious");
-            console.log("test2");
-            EditEvent.fire(); 
-        }
+    cancelClick : function(component, event, helper){
+        
+        alert("You clicked: " + event.getSource().get("v.label"));
     },
     
-    EditEvent : function(component, event, helper){
+    previousClick : function(component, event, helper){
         
-        var EditEvent = component.getEvent('EditEvent');
-        EditEvent.setParams({ "PanelToEditId" : panelId });
-        EditEvent.fire(); 
+        alert("You clicked: " + event.getSource().get("v.label"));
+    },
+    
+    nextClick : function(component, event, helper){
+        
+        alert("You clicked: " + event.getSource().get("v.label"));
     }
 })

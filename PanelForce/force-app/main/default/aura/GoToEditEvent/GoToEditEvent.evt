@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT" description="Fire Edit Event for Parent Component" >
-    <aura:attribute name="PanelToEditId" type="string"/>
-</aura:event>

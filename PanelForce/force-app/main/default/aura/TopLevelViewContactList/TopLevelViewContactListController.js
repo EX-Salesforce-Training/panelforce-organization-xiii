@@ -33,8 +33,5 @@
                 
                 break;
         }
-    },
-    ChangeView : function (component, event, helper){
-        component.set("v.contactListIsVisible", true);
     }
 })

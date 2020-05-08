@@ -5,8 +5,6 @@
     <aura:attribute name="panelId" type="String"/>
     
     <aura:handler name="PanelSelectEvent" event="c:NavigateToDetailedPanelResults" action="{!c.ChangeToPanelResultsComponent}"/>
-    <aura:handler name="ReturnPrevious2" event="c:GoToPreviousContactPage" action="{!c.ChangeView}"/>
-    <aura:registerEvent name="ReturnPreviousEvent3" type="c:GoToPreviousContactPage"/>
     
     <aura:if isTrue="{!v.contactViewIsVisible}">
         
@@ -18,16 +16,12 @@
                                   layoutType="Compact"
                                   mode="readonly"/>
             
-            <br/>
-            <div class="Title"> Panel History</div>
-            
             <c:PanelHistory selectedContactId="{!v.selectedContactId}"/>
-            <lightning:button variant="destructive-text" label="Return To List" onclick="{!c.GoBack}"/>
             
         </lightning:card>
         
         <aura:set attribute="else">
-            <c:DetailedPanelResults selectedPanelId="{!v.panelId}" ContactReturn="true"/>
+            <c:DetailedPanelResults selectedPanelId="{!v.panelId}"/>
         </aura:set>
         
     </aura:if>
