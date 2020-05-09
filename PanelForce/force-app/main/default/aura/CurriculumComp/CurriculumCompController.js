@@ -87,7 +87,14 @@
         });
         action.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
-                //component.set("v.technologyList", response.getReturnValue());               
+                //component.set("v.technologyList", response.getReturnValue()); 
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    "type" : "success",
+                    "message": "The curriculum has been saved."
+                    
+                });
+                toastEvent.fire();              
             }
             else{
                 console.log("Error " + response.getState());

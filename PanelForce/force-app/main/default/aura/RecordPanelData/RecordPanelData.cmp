@@ -14,33 +14,51 @@
     <aura:attribute name="topicObjList" type="String[]"/>
     <!--Output the fields for the panel object. Will also include related fields Contact and Curriculum (Template).
     No editing here. -->
-    <lightning:card>
-    <lightning:recordEditForm aura:id = "RecordDataID" recordId="{!v.id}" objectApiName="Panel__c" onload="{!c.recordLoaded}">
-        <lightning:messages />
-        <span class = "inputStuff"><lightning:outputField fieldName ="Contact__c"/></span>
-        <span class = "inputStuff"><lightning:outputField value="{!v.curriculumVal}"  fieldName ="Template__c" /> </span>
-        <span class = "inputStuff"><lightning:outputField fieldName ="Date_Time__c"/></span>
-        <span class = "inputStuff"><lightning:outputField fieldName = "Duration__c" /> </span>
-        <span class = "inputStuff"><lightning:outputField fieldName = "Mode__c"/> </span>
-        <span class = "inputStuff"><lightning:outputField fieldName ="Panel_Round__c"/> </span>
-        <lightning:outputField fieldName ="Recording_Consent__c"/>
-        
-        
-        <!--iterate through the topics list, creating a record edit form that allows you to edit actual score and comment-->
 
-        <aura:iteration items="{!v.topics}" var="topic">
-            <lightning:card>
-                <c:RecordPanelDataTopics topic="{!topic}"/>                                          
-            </lightning:card>
-        </aura:iteration>
-        
-        <!--Here, allow edit of Overall feedback, Client Interview Ready, and Panel Comments using recordEditForm inputField-->
-        <span class = "LastThree"><lightning:inputField fieldName ="Overall_Feedback__c"/></span>
-        <span class = "LastThree"><lightning:inputField fieldName ="Client_Interview_Ready__c"/></span>
-        <span class = "LastThree"><lightning:inputField fieldName ="Panel_Comments__c"/></span>
-        <span class = "LastThree"><lightning:inputField fieldName ="Recording_Link__c"/></span>
-        <!--Finally, the submit button that updates and saves any changes made to Panel and related Topic objects-->
-        <lightning:button name = "Update" type= "submit" label = "Update" onclick="{!c.handleSaveRecord}"/>
-    </lightning:recordEditForm>
-    </lightning:card>
+    <div class="slds-page-header" role="banner" style="background-color: #fff;">
+
+        <lightning:recordEditForm aura:id = "RecordDataID" recordId="{!v.id}" objectApiName="Panel__c" onload="{!c.recordLoaded}">
+            <div class="slds-grid slds-gutters">
+            <lightning:messages />
+            <div class="contact-info slds-col">
+                <lightning:outputField class = "ContactHover" fieldName ="Contact__c"/>
+                <lightning:outputField value="{!v.curriculumVal}"  fieldName ="Template__c" /> 
+                <lightning:outputField fieldName ="Date_Time__c"/>
+                <lightning:outputField fieldName = "Duration__c" /> 
+                <lightning:outputField fieldName = "Mode__c"/> 
+                <lightning:outputField fieldName ="Panel_Round__c"/> 
+                <lightning:outputField fieldName ="Recording_Consent__c"/>
+
+                <!--Here, allow edit of Overall feedback, Client Interview Ready, and Panel Comments using recordEditForm inputField-->
+
+                <lightning:inputField fieldName ="Overall_Feedback__c"/>
+                <lightning:inputField fieldName ="Client_Interview_Ready__c"/>
+                <lightning:inputField fieldName ="Panel_Comments__c"/>
+                <lightning:inputField fieldName ="Recording_Link__c"/>
+            
+
+            </div>
+            
+            
+            
+            <!--iterate through the topics list, creating a record edit form that allows you to edit actual score and comment-->
+            <div class="slds-col panel-info">
+                
+                <aura:iteration items="{!v.topics}" var="topic">
+                    <lightning:card class="slds-card slds-has-top-magnet slds-has-bottom-magnet">
+                        <c:RecordPanelDataTopics topic="{!topic}"/>                                          
+                    </lightning:card>
+                </aura:iteration>
+                <!--Finally, the submit button that updates and saves any changes made to Panel and related Topic objects-->
+                <lightning:button class="revature-btn2" name = "Update" type= "submit" label = "Update" onclick="{!c.handleSaveRecord}"/>
+            </div>
+            
+
+            
+            
+          </div>  
+        </lightning:recordEditForm>
+       </div>
+    
+
 </aura:component>
