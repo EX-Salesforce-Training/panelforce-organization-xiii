@@ -12,26 +12,36 @@
     <!--View each Topic field for edit. Name and Max Score display only.
         Modify Actual Score, Repanel, and Coments field. -->
 	<div class ="container">
-            <div class="flexRow">
-                <span class="centerTitle">Technology:</span>
-                <span class="">{!v.topic.Name}</span>
-            </div>
-            <div class="otherCon">
-                <div class ="flexRow">
-                    <span>Max Score:</span>
-                    <span>{!v.topic.Max_Score__c}</span>
-                </div>
-                <div class ="flexRow">
-                    <span>Actual Score:</span>
-                    <lightning:input type="number" value="{!v.topic.Actual_Score__c}"/>
-                </div>
-                <div class ="flexRow">
-                    <span>Repanel:</span>
-            		<lightning:input type="checkbox" checked="{!v.topic.Repanel__c}"/>
-            </div></div>
-            <div class="comCon">
-                <span>Comments:</span>
-                <lightning:input type = "String" value = "{!v.topic.Comments__c}"/>
-
-    </div></div>	        
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="12">
+            <lightning:layout>
+                <lightning:layoutItem size="4">
+                    <lightning:input type="String" label="Technology" value="{!v.topic.Name}" readonly="true"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="4">
+                    <lightning:input type="String" label="Max Score" value="{!v.topic.Max_Score__c}" readonly="true"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="4">
+                    <lightning:input type="number" label="Actual Score" value="{!v.topic.Actual_Score__c}"/>
+                </lightning:layoutItem> 
+                
+                </lightning:layout>   
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12">
+            <lightning:layout>
+                <lightning:layoutItem size="12">
+                    <lightning:textarea type = "String" label="Comments" value = "{!v.topic.Comments__c}" />
+                </lightning:layoutItem>
+                
+            </lightning:layout>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12">
+            <lightning:layout>
+                <lightning:layoutItem size="3">
+                    <lightning:input type="checkbox" label="Repanel" checked="{!v.topic.Repanel__c}"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:layoutItem>
+    </lightning:layout>
+    </div>	        
 </aura:component>
