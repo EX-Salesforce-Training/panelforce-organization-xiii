@@ -3,6 +3,7 @@
     <aura:attribute name="panelId" type="id"/>
     <aura:attribute name="selectedTabId" type="string" default="viewpanel"/>
 
+    <aura:handler name="EditEvent" event="c:GoToEditEvent" action="{!c.navToPanel}"/>
     <aura:handler name="navToRecordPanelDataDateTime" event="c:NavigateToRecordPanelDataDateTime" action="{!c.navToRecord}"/>
     <aura:handler name="navToHomePage" event="c:NavigateToHomePage" action="{!c.navToView}"/>
 	<lightning:tabset selectedTabId="{!v.selectedTabId}">
