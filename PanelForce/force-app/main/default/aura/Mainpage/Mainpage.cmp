@@ -6,6 +6,8 @@
     <aura:handler name="EditEvent" event="c:GoToEditEvent" action="{!c.navToPanel}"/>
     <aura:handler name="navToRecordPanelDataDateTime" event="c:NavigateToRecordPanelDataDateTime" action="{!c.navToRecord}"/>
     <aura:handler name="navToHomePage" event="c:NavigateToHomePage" action="{!c.navToView}"/>
+    <aura:handler name="NavigateToHomePage" event="c:NavigateToHomePage" action="{!c.navToView}"/>
+
 	<lightning:tabset selectedTabId="{!v.selectedTabId}">
         <lightning:tab label = "View Panels" id="viewpanel">
             <c:TopLevelViewPanelList/>

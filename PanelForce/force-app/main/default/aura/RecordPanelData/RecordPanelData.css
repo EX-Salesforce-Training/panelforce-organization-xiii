@@ -1,10 +1,23 @@
-.THIS.inputStuff {
-    background-color: azure;
-    flex: auto;
-
+.THIS .contact-info{
+    margin-left: 30px;
 }
 
-.THIS.LastThree{
-    background-color: bisque;
-    flex:auto;
+.THIS .ContactHover{
+    color: orange;
+}
+
+.THIS .panel-info{
+    margin-right: 30px;
+}
+
+.THIS .revature-btn{
+    background-color: #F26925;
+    border-color: #F26925;
+    
+    
+}
+
+.THIS .revature-btn2{
+    color: #F26925;
+    
 }

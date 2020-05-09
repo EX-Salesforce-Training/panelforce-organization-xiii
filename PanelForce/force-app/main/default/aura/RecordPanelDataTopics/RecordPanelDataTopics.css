@@ -1,6 +1,10 @@
 .THIS {
 }
 
+.THIS .input-2{
+    padding: 0px 10px;
+}
+
 .THIS .container {
     display:flex;
     flex-flow:column;
@@ -16,18 +20,14 @@
 }
 
 .THIS .centerTitle {
-    background-color:red;
+  
     height:51px;
     display:flex;
     align-items:center;
 }
 
 .THIS .centerInput {
-    background-color:blue;
+   
     display:flex;
     align-items:top;
-}
-
-.THIS .otherCon {
-    background-color: yellow;
 }
