@@ -38,7 +38,7 @@
         <span class = "LastThree"><lightning:inputField fieldName ="Overall_Feedback__c"/></span>
         <span class = "LastThree"><lightning:inputField fieldName ="Client_Interview_Ready__c"/></span>
         <span class = "LastThree"><lightning:inputField fieldName ="Panel_Comments__c"/></span>
-        <span class = "LastThree"><lightning:inputField fieldName ="Recording_URL__c"/></span>
+        <span class = "LastThree"><lightning:inputField fieldName ="Recording_Link__c"/></span>
         <!--Finally, the submit button that updates and saves any changes made to Panel and related Topic objects-->
         <lightning:button name = "Update" type= "submit" label = "Update" onclick="{!c.handleSaveRecord}"/>
     </lightning:recordEditForm>
