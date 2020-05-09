@@ -14,10 +14,10 @@ public class PanelGrabberTest {
         System.debug(con);
         System.debug(cur);
 
-        Panel__c pan = new Panel__c(Contact__c = con.Id, Template__c = cur.Id, Date_Time__c = Datetime.newInstance(2020, 5, 7, 1, 30, 0));
+        Panel__c pan = new Panel__c(Contact__c = con.Id, Template__c = cur.Id, Date_Time__c = Datetime.newInstance(2030, 5, 7, 1, 30, 0));
 
         insert pan;
 
-        System.assertEquals(pan.Id, PanelGrabber.getPanelByDateTime(Datetime.newInstance(2020, 5, 7, 1, 30, 0), con.Id));
+        System.assertEquals(pan.Id, PanelGrabber.getPanelByDateTime(Datetime.newInstance(2030, 5, 7, 1, 30, 0), con.Id));
     }
 }

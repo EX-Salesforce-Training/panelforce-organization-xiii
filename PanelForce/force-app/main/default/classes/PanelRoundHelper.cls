@@ -16,9 +16,8 @@ public class PanelRoundHelper {
                 System.Debug('wait');
                 if (cons[i].Id == p.Contact__c){
                     con = cons[i];
-                    i++;
-                    System.Debug('P CONTACT: ' + p.Contact__c + ' con ' + con);
                 }
+                i++;
             }
             p.Panel_Round__c = con.Panels__r.size() + 1;
         }
