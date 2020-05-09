@@ -9,7 +9,7 @@
     <aura:if isTrue="{!v.detailedPanelResultsIsVisible}">
         <c:DetailedPanelResults selectedPanelId="{!v.panelId}" ContactReturn="false"/>
         <aura:set attribute="else">
-            <!--<c:FilterPanelResultsByName/> -->
+            <c:FilterPanelResultsByName/>
         </aura:set>
     </aura:if>
     

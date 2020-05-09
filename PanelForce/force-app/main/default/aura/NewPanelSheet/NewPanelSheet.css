@@ -1,7 +1,13 @@
 .THIS.align {
-  padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
-.THIS .button{
-  
+
+.THIS .btn-group{
+    margin-right: 20px;
+}
+
+.THIS .revature-btn2{
+    color: #F26925;
+    
 }
