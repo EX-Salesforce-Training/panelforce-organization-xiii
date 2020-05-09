@@ -17,6 +17,8 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Actual_Score__c</field>
+            </layoutItems>
                 <field>Comments__c</field>
             </layoutItems>
         </layoutColumns>
@@ -27,13 +29,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Actual_Score__c</field>
+                <field>Repanel__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Repanel__c</field>
+                <field>Comments__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
@@ -90,7 +93,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h1h000000sGtp</masterLabel>
+        <masterLabel>00h1g0000016cNe</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

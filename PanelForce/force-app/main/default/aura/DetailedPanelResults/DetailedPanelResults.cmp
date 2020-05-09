@@ -159,8 +159,8 @@
   		<div class="slds-float_right">
         
         <lightning:buttonGroup class = "buttonClass">
-            <lightning:button variant="destructive-text" label="Return To List" onclick="{!c.GoBack }"/>
-            <lightning:button variant="brand-outline" label="Edit Panel" onclick="{!c.EditEvent }"/>
+            <lightning:button class="buttonColor" label="Return To List" onclick="{!c.GoBack }"/>
+            <lightning:button class="buttonColor2" label="Edit Panel" onclick="{!c.EditEvent }"/>
         </lightning:buttonGroup>
             </div>
         </div>
