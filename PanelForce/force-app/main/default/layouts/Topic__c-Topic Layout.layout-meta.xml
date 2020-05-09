@@ -19,10 +19,6 @@
                 <behavior>Edit</behavior>
                 <field>Actual_Score__c</field>
             </layoutItems>
-                <field>Comments__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Max_Score__c</field>
