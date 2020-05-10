@@ -49,11 +49,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TopLevelViewContactListController</apexClass>
+        <apexClass>TestDetailedPanelResultsController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TopLevelViewContactListControllerTest</apexClass>
+        <apexClass>TopLevelViewContactListController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
