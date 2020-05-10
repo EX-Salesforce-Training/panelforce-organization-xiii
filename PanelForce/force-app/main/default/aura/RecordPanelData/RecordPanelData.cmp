@@ -1,6 +1,7 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global" controller="RecordPanelDataController">
     <!--Register an Event.-->
     <aura:registerEvent name="NavigateToHomePage" type="c:NavigateToHomePage"/>
+    <aura:registerEvent name="RefreshDetailedPanelPage" type="c:RefreshDetailedPanelPage"/>
     <!--Assign types and attributes. Topics that are associated to panels.-->
     <aura:attribute name="topics" type="Topic__c[]"/>
     <aura:attribute name = "thePanel" type = "Panel__c"/>
