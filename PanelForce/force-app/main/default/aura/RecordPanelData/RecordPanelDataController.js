@@ -65,6 +65,9 @@
         let navigateHome = component.getEvent("NavigateToHomePage");
         navigateHome.fire();
 
+        var appEvent = $A.get("e.c:RefreshDetailedPanelPage");
+        appEvent.fire();
+
     }
 
 });
