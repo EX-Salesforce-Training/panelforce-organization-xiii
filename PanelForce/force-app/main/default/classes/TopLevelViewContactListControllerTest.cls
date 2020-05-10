@@ -1,23 +1,20 @@
 @isTest
 private class TopLevelViewContactListControllerTest {
 
-    @isTest static void Test1(){
-        contact c = new contact(lastname = 'John');
-        list<contact> cc = new list<contact>();
-        list<Panel__c> Pan1 = new list<Panel__c>();
-        cc.add(c);
-        insert cc;
-        Curriculum__c cur = new Curriculum__c(Name = 'Test Curriculum', Topics__c='Topic 1', Max_Scores__c='30');
-        insert cur;
-        Panel__c pan = new Panel__c(Contact__c = cc[0].Id, Template__c = cur.Id, Duration__c='90');
-        Pan1.add(pan);
-        insert Pan1;
-           
-        contact contactId = [select lastname ,Id from contact where lastname ='John']; 
-             
-        list<Panel__c> obj1 = PanelHistoryController.GetContactPanels(contactId.Id);
-        System.assertEquals(obj1[0].Contact__r.Name, 'John');
-        system.debug(obj1);
-        
+    static testMethod void testContactCotroller() {
+        Contact contactListName = new Contact();
+        contactListName.LastName= 'Runs';
+        contactListName.Phone='555-555-5555';
+        contactListName.Email='test@email.com';
+        insert contactListName;
+         system.debug(contactListName);
+
+	List <Contact> cons =[SELECT LastName, Phone, Email, Id FROM Contact WHERE Phone ='555-555-5555' LIMIT 1];
+
+	Test.startTest();
+         List <Contact> conTest= TopLevelViewContactListController.GetContacts();
+        Test.stopTest();
+
+	system.assert(conTest != null);
     }
 }
