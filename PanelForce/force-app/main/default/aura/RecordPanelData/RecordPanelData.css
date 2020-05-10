@@ -1,3 +1,12 @@
+.THIS {
+    font-family: futura-pt, sans-serif;
+}
+
+@font-face {
+    font-family: futura-pt, sans-serif;
+    src: url(/resource/futurafont/ParaType_-_Futura_PT_Book.ttf);
+}
+
 .THIS .contact-info{
     margin-left: 30px;
 }
