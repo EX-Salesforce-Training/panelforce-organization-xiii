@@ -8,6 +8,7 @@
                                                                     'sobjectType': 'Panel__c',       
                                                                     'Overall_Feedback__c': '',                                                       
                                                                     'Client_Interview_Ready__c' : false,
+                                                                  	'Recording_Consent__c':false,
                                                                     'Panel_Comments__c' : '',
                                                                     'Recording_Link__c' : ''
                                                                 }"/>
@@ -34,10 +35,9 @@
                 <lightning:outputField fieldName = "Duration__c" /> 
                 <lightning:outputField fieldName = "Mode__c"/> 
                 <lightning:outputField fieldName ="Panel_Round__c"/> 
-                <lightning:outputField fieldName ="Recording_Consent__c"/>
-
+       
                 <!--Here, allow edit of Overall feedback, Client Interview Ready, and Panel Comments using recordEditForm inputField-->
-
+                <lightning:input type="checkbox" checked="{!v.thePanel.Recording_Consent__c}" fieldName ="Recording_Consent__c" label="Recording Consent"/>   
                 <lightning:inputField value="{!v.thePanel.Overall_Feedback__c}" fieldName ="Overall_Feedback__c"/>
                 <lightning:input type="checkbox" checked="{!v.thePanel.Client_Interview_Ready__c}" fieldName ="Client_Interview_Ready__c" label="Interview Ready"/>
                 <lightning:inputField value="{!v.thePanel.Panel_Comments__c}" fieldName ="Panel_Comments__c"/>
