@@ -4,7 +4,7 @@
         
         var actions = [
             { label: 'View Panel Results', name: 'View_Panel_Results' },
-            { label: 'View Associate History', name: 'View_Associate_History' }
+            { label: 'Edit Panel', name: 'Edit_Panel_Info' }
         ]
         
         component.set('v.mycolumns', [
@@ -42,9 +42,12 @@
                 PanelNavEvent.setParams({ "panelId" : panelId });
                 PanelNavEvent.fire();                
                 break;
-            case 'View_Associate_History':
-                alert('Showing Details: ' + JSON.stringify(row));
-                break;
+                case 'Edit_Panel_Info':
+                    //console.log("Enter edit");
+                    var EditEvent = cmp.getEvent('EditEvent');
+                    EditEvent.setParams({ "PanelToEditId" : panelId });
+                    EditEvent.fire();
+                    //console.log(EditEvent.get)
         }
     }
 })
