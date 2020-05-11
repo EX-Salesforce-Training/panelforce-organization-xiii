@@ -4,7 +4,13 @@
     <aura:registerEvent name="RefreshDetailedPanelPage" type="c:RefreshDetailedPanelPage"/>
     <!--Assign types and attributes. Topics that are associated to panels.-->
     <aura:attribute name="topics" type="Topic__c[]"/>
-    <aura:attribute name = "thePanel" type = "Panel__c"/>
+    <aura:attribute name = "thePanel" type = "Panel__c"  default="{       
+                                                                    'sobjectType': 'Panel__c',       
+                                                                    'Overall_Feedback__c': '',                                                       
+                                                                    'Client_Interview_Ready__c' : false,
+                                                                    'Panel_Comments__c' : '',
+                                                                    'Recording_Link__c' : ''
+                                                                }"/>
     <aura:attribute name="topic" type="Topic__c" default="{       
                                                             'sobjectType': 'Topic__c',       
                                                             'Name': '',                                                       
@@ -32,10 +38,10 @@
 
                 <!--Here, allow edit of Overall feedback, Client Interview Ready, and Panel Comments using recordEditForm inputField-->
 
-                <lightning:inputField fieldName ="Overall_Feedback__c"/>
-                <lightning:inputField fieldName ="Client_Interview_Ready__c"/>
-                <lightning:inputField fieldName ="Panel_Comments__c"/>
-                <lightning:inputField fieldName ="Recording_Link__c"/>
+                <lightning:inputField value="{!v.thePanel.Overall_Feedback__c}" fieldName ="Overall_Feedback__c"/>
+                <lightning:input type="checkbox" checked="{!v.thePanel.Client_Interview_Ready__c}" fieldName ="Client_Interview_Ready__c" label="Interview Ready"/>
+                <lightning:inputField value="{!v.thePanel.Panel_Comments__c}" fieldName ="Panel_Comments__c"/>
+                <lightning:inputField value="{!v.thePanel.Recording_Link__c}" fieldName ="Recording_Link__c"/>
             
 
             </div>
