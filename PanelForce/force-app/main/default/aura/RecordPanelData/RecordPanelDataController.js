@@ -40,7 +40,7 @@
         var action = component.get("c.updatePanelTopics");
         var panelID = component.get("v.id");
         var topics = component.get("v.topics");
-
+        var panelObj = component.get("v.thePanel");
         /*
         for(var i = 0;i<topics.length;i++){
             console.log(topics[i]);
@@ -49,7 +49,8 @@
         //Pass panel Id and its associated topics into Apex controller method. 
         action.setParams({
             "panelId": panelID,
-            "topics" : topics
+            "topics" : topics,
+            "panelObj": panelObj
         });
         //Usual callback stuff. 
         action.setCallback(this, function(response){
