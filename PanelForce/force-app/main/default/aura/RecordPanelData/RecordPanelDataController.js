@@ -23,18 +23,21 @@
         });
         $A.enqueueAction(action);
     },
+    
+    handleChange : function(component, event, helper) {
+		
+        console.log(event.getParam('value'));
+        if(event.getParam('value')=="checked"){
+            component.find("comments").set("v.required",true);
+        
+        }else{
+            component.find("comments").set("v.required",false);
+        
+        }
+	},
     //Update and save the modified panel and related topic records. 
     handleSaveRecord :function(component,event,helper){  
         
-        //Show a toast to inform the user that everything is saved correctly. 
-        var toastEvent = $A.get("e.force:showToast");
-        toastEvent.setParams({
-            "type" : "success",
-            "title": "Success!",
-            "message": "The record has been updated successfully."
-        });
-        toastEvent.fire();
-
         //Prime the updatePanelTopics method in the Apex controller. 
         //Acquire the attributes from the component view. 
         var action = component.get("c.updatePanelTopics");
@@ -55,19 +58,48 @@
         //Usual callback stuff. 
         action.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
+                //Show a toast to inform the user that everything is saved correctly. 
+                //
+                if(response.getReturnValue()==true){
+                    var toastEvent = $A.get("e.force:showToast");
+                    toastEvent.setParams({
+                        "type" : "success",
+                        "title": "Success!",
+                        "message": "The record has been updated successfully."
+                    });
+                    toastEvent.fire();
+                    
+                    //Fire event to return to home page. 
+                    let navigateHome = component.getEvent("NavigateToHomePage");
+                    navigateHome.fire();
+            
+                    var appEvent = $A.get("e.c:RefreshDetailedPanelPage");
+                    appEvent.fire();
+                }else{
+                    var toastEvent = $A.get("e.force:showToast");
+                    toastEvent.setParams({
+                        "type" : "error",
+                        "title": "Error!",
+                        "message": "Must Fill In Panel Comments For Repaneled Topic"
+                    });
+                    toastEvent.fire();
+                }
                 
             }
             else{
                 console.log("Error " + response.getState());
+                
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    "type" : "error",
+                    "title": "Error!",
+                    "message": response.getState()
+                });
+                toastEvent.fire();
             }
         });
         $A.enqueueAction(action);
-        //Fire event to return to home page. 
-        let navigateHome = component.getEvent("NavigateToHomePage");
-        navigateHome.fire();
-
-        var appEvent = $A.get("e.c:RefreshDetailedPanelPage");
-        appEvent.fire();
+        
 
     }
 

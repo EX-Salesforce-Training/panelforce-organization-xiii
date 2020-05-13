@@ -11,4 +11,9 @@ public class CurriculumController {
             code = e.getDmlType(0);
         }
     }
+    
+    @AuraEnabled
+    public static Topic__c createTopic(){
+        return new Topic__c();
+    }
 }

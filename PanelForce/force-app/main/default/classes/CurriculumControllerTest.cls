@@ -10,6 +10,16 @@ public class CurriculumControllerTest {
 
     //     insert curr;
     // }
+    // 
+    @isTest
+    static void topicTest(){
+        
+        test.startTest();
+        
+        system.assertNotEquals(Null, CurriculumController.createTopic());
+        
+        test.stopTest();
+    }
 
     @isTest
     static void curriculumTest(){

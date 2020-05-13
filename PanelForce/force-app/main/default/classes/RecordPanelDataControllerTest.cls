@@ -19,7 +19,7 @@ public class RecordPanelDataControllerTest {
        Panel__c testPanel = new Panel__c(Template__c = testCurr.Id, Contact__c = testContact.Id );
        insert testPanel;
 
-       Panel__c testPanelNew = new Panel__c(Template__c = testCurr.Id, Contact__c = testContact.Id,Panel_Comments__c='Message' );
+       Panel__c testPanelNew = new Panel__c(Template__c = testCurr.Id, Contact__c = testContact.Id,Panel_Comments__c='' );
        insert testPanelNew;
        
        //
@@ -43,12 +43,46 @@ public class RecordPanelDataControllerTest {
        System.assertEquals(100,newPanel.Topics__r[0].Actual_Score__c);
        
        
+
+       
        Test.stopTest();
            
        
       }//End testgetTopics
    
-  
+    @isTest
+    public static void testGetTopicsNoCommit(){
+        test.startTest();
+       //Create contacts to associate to panels
+       Contact testContact = new Contact(LastName = 'Test Name');
+       insert testContact;
+       //create curriculums (templates) to associate to panels
+       Curriculum__c testCurr = new Curriculum__c(Name = 'Test Curr', Max_Scores__c = '2,3', Topics__c = 'topic 2,topic3');
+       insert testCurr;
+       //Create a bunch of test panels.
+       Panel__c testPanel = new Panel__c(Template__c = testCurr.Id, Contact__c = testContact.Id );
+       insert testPanel;
+
+       Panel__c testPanelNew = new Panel__c(Template__c = testCurr.Id, Contact__c = testContact.Id,Panel_Comments__c='' );
+       insert testPanelNew;
+       
+       //
+       List<Topic__c> listTopic = RecordPanelDataController.getTopics(testPanel.id);
+       
+       //New list of topics
+       
+       List<Topic__c> newTopicsList = listTopic;
+       newTopicsList[0].Actual_Score__c = 100;
+       Id topicId = newTopicsList[0].Id;
+       newTopicsList[0].Comments__c = 'Comment';
+       newTopicsList[1].Comments__c = 'Comment';
+       newTopicsList[1].Repanel__c = true;
+      
+
+       System.assertEquals(false,RecordPanelDataController.updatePanelTopics(testPanel.id, newTopicsList,testPanelNew));
+
+       Test.stopTest();
+    }
    
     
 }

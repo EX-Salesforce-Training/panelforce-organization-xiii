@@ -40,7 +40,7 @@
                 <lightning:input type="checkbox" checked="{!v.thePanel.Recording_Consent__c}" fieldName ="Recording_Consent__c" label="Recording Consent"/>   
                 <lightning:inputField value="{!v.thePanel.Overall_Feedback__c}" fieldName ="Overall_Feedback__c"/>
                 <lightning:input type="checkbox" checked="{!v.thePanel.Client_Interview_Ready__c}" fieldName ="Client_Interview_Ready__c" label="Interview Ready"/>
-                <lightning:inputField value="{!v.thePanel.Panel_Comments__c}" fieldName ="Panel_Comments__c"/>
+                <lightning:inputField aura:id="checkbox" value="{!v.thePanel.Panel_Comments__c}" fieldName ="Panel_Comments__c"/>
                 <lightning:inputField value="{!v.thePanel.Recording_Link__c}" fieldName ="Recording_Link__c"/>
             
 
