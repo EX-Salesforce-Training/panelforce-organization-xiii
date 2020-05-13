@@ -15,8 +15,11 @@ public class RecordPanelDataController{
     /* Query for a specific panel. Accepts a panelId and list of topics. Returns nothing. 
     Updates the Topic object's fields related to the panel. */
     @AuraEnabled
-    public static void updatePanelTopics(String panelId, List<Topic__c> topics, Panel__c panelObj){
+    public static boolean updatePanelTopics(String panelId, List<Topic__c> topics, Panel__c panelObj){
+        
+        boolean isPassable=true;
         //Retrieve the one panel by using the provided panelId. 
+        
         Panel__c panel = [SELECT Id,Recording_Consent__c,Date_Time__c,Client_Interview_Ready__c,Overall_Feedback__c,Panel_Comments__c,Recording_Link__c,
                                     (SELECT Id,Actual_Score__c,Repanel__c,Comments__c FROM Topics__r) FROM Panel__c WHERE ID=:panelId];
         
@@ -40,6 +43,10 @@ public class RecordPanelDataController{
                     oldTopics[i].Actual_Score__c = topics[j].Actual_Score__c;
                     oldTopics[i].Comments__c = topics[j].Comments__c;
                     oldTopics[i].Repanel__c = topics[j].Repanel__c;
+                    System.debug('HELP: ' + panelObj.Panel_Comments__c);
+                    if(oldTopics[i].Repanel__c == true && panelObj.Panel_Comments__c == ''){
+            			isPassable = false;
+        			}
                 }
             }
 
@@ -52,14 +59,16 @@ public class RecordPanelDataController{
         panel.Recording_Link__c = panelObj.Recording_Link__c;
         panel.Date_Time__c = LAST_HOUR;
 
-        System.Debug('old: ' + panel);
         
-        update oldTopics;
-        update panel;
-        System.Debug('new: ' + panel);
+        if(isPassable){
+            System.Debug('old: ' + panel);
+            update panel;	
+            update oldTopics;
+            
+            System.Debug('new: ' + panel);
+        }
         
-        
-
+        return isPassable;
     }
 
 }

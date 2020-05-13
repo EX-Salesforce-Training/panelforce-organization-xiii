@@ -24,58 +24,26 @@
     },
 
     submitButtonOnClick: function(component,event,helper){
+		
+        var topicObjList = component.get("v.topicObjList");
 
-        var topicNames = component.find("topicName");
-        var topicMaxScores = component.find("maxScore");
-               
-        console.log(topicMaxScores);
-        
         var topics = "";
         var maxscore = "";
 
-        var i;
-
-        for(i=0; i < topicNames.length; i++){
-			console.log(topicNames[i].get("v.value"));
-            console.log(topicMaxScores[i].get("v.value"));
+        for(var i=0;i<topicObjList.length;i++){
+            if(topicObjList[i].Name.get("v.value").trim() != "" && topicObjList[i].Max_Score__c.get("v.value").trim() != ""){
+                
+                topics += ("," + topicObjList[i].Name.get("v.value").trim());
+                maxscore += ("," + topicObjList[i].Max_Score__c.get("v.value").trim());
+                
+            }
             
-            if(topics == ""){
-                if(topicNames[i].get("v.value")!=""){
-                    if(topicNames[i].get("v.value") != "SecureComponentRef: InteropComponent: markup://lightning:input{ key: {\"namespace\":\"c\"} }"){
-                        topics = topicNames[i].get("v.value");
-                    }
-                    
-                }
-            }
-            else{
-                if(topicNames[i].get("v.value")!=""){
-                    if(topicNames[i].get("v.value") != "SecureComponentRef: InteropComponent: markup://lightning:input{ key: {\"namespace\":\"c\"} }"){
-                        topics += ("," + topicNames[i].get("v.value"));
-                    }
-                    
-                }
-                
-            }
-
-            if(maxscore == ""){
-                
-                if(topicMaxScores[i].get("v.value")!=""){
-                    if(topicMaxScores[i].get("v.value") != "SecureComponentRef: InteropComponent: markup://lightning:input{ key: {\"namespace\":\"c\"} }"){
-                        maxscore = topicMaxScores[i].get("v.value");
-                    }
-                    
-                }
-            }
-            else{
-                 if(topicMaxScores[i].get("v.value")!=""){
-                     if(topicMaxScores[i].get("v.value") != "SecureComponentRef: InteropComponent: markup://lightning:input{ key: {\"namespace\":\"c\"} }"){
-                        maxscore += ("," + topicMaxScores[i].get("v.value"));
-                    }
-                     
-                }
-              
-            }
         }
+        
+        topics = topics.substr(1);
+        maxscore = maxscore.substr(1);
+        
+        console.log(topics);
 
         var newCurriculum = component.get("v.cur");
         newCurriculum.Topics__c = topics;
@@ -105,57 +73,64 @@
     addInputField : function(component, event , helper){
 
         var mainTopicList=component.get("v.mainTopicList");
-        var topic = component.get("v.topicObj");
         var topicObjList = component.get("v.topicObjList");
         
-        topicObjList.push(topic);
+        var action = component.get("c.createTopic");
+
+        action.setCallback(this, function(response){
+            if(response.getState() === "SUCCESS"){
+            	topicObjList.push(response.getReturnValue());    
+                
+                $A.createComponent("lightning:input",
+                {"aura:id":"topicName", 
+                "label":"Topic Name",
+                "class": "input1 slds-align_absolute-center slds-col slds-size_1-of-2",
+                "value": topicObjList[topicObjList.length-1].Name},
+                function(newInput, status, errorMessage){
+                    if(status === "SUCCESS"){
+                        var body = component.get("v.body");
+                        body.push(newInput);
+                        component.set("v.body", body);
         
-        if(topicObjList.length!=0){
-            var yup = topicObjList[0].Name;
-            console.log(yup);
-        }
-
-        $A.createComponent("lightning:input",
-		{"aura:id":"topicName", 
-        "label":"Topic Name",
-        "class": "input1 slds-align_absolute-center slds-col slds-size_1-of-2",
-        "value": topicObjList[topicObjList.length-1].Name},
-		function(newInput, status, errorMessage){
-			if(status === "SUCCESS"){
-				var body = component.get("v.body");
-				body.push(newInput);
-                component.set("v.body", body);
-
-                mainTopicList.push(newInput);
-                topicObjList[topicObjList.length-1].Name= newInput;
-                console.log(newInput.get("v.value"));
-			}
-        } );
-
-        $A.createComponent("lightning:input",
-		{"aura:id":"maxScore", 
-        "label":"Max Score",
-        "class": "slds-align_absolute-center slds-col slds-size_1-of-2" ,
-         "value": topicObjList[topicObjList.length-1].Max_Score__c},
-		function(newInput, status, errorMessage){
-			if(status === "SUCCESS"){
-				var body = component.get("v.body");
-				body.push(newInput);
-                component.set("v.body", body);
-
-                mainTopicList.push(newInput);
-                topicObjList[topicObjList.length-1].Max_Score__c = newInput;
-			}
-        } );
-
-        var page = component.get("v.page") || 1;
-      	// get the select option (drop-down) values.   
-      	var recordToDisply = component.find("recordSize").get("v.value");
-        component.set("v.mainTopicList",mainTopicList);
-        helper.getTopics(component,page,recordToDisply);
-      
+                        mainTopicList.push(newInput);
+                        topicObjList[topicObjList.length-1].Name= newInput;
+                        console.log(newInput.get("v.value"));
+                    }
+                } );
         
-        component.set("v.topicObjList",topicObjList);
+                $A.createComponent("lightning:input",
+                {"aura:id":"maxScore", 
+                "label":"Max Score",
+                "class": "slds-align_absolute-center slds-col slds-size_1-of-2" ,
+                 "value": topicObjList[topicObjList.length-1].Max_Score__c},
+                function(newInput, status, errorMessage){
+                    if(status === "SUCCESS"){
+                        var body = component.get("v.body");
+                        body.push(newInput);
+                        component.set("v.body", body);
+                        
+                        mainTopicList.push(newInput);
+                        topicObjList[topicObjList.length-1].Max_Score__c = newInput;
+                    }
+                } );
+        
+                var page = component.get("v.page") || 1;
+                // get the select option (drop-down) values.   
+                var recordToDisply = component.find("recordSize").get("v.value");
+                component.set("v.mainTopicList",mainTopicList);
+                helper.getTopics(component,page,recordToDisply);
+              
+                
+                component.set("v.topicObjList",topicObjList);
+            }
+            else{
+                console.log("Error " + response.getState());
+            }
+        });
+        $A.enqueueAction(action);
+  
+
+        
     },
 
     removeInputField : function(component, event, helper){
@@ -165,6 +140,8 @@
         var mainTopicList=component.get("v.mainTopicList");
         var topicObjList = component.get("v.topicObjList");
         var filterList = component.get("v.filterList");
+        var topicNames = component.find("topicName");
+        var topicMaxScores = component.find("maxScore");
        
         var body = component.get("v.body");
         
@@ -172,28 +149,32 @@
       	// get the select option (drop-down) values.   
       	var recordToDisply = component.find("recordSize").get("v.value");
         
-        topicNames[topicNames.length-1].set("v.value","");
-        topicMaxScores[topicMaxScores.length-1].set("v.value","");
-  
+        
+		//topicNames[topicNames.length-1].set("v.value","");
+        //topicMaxScores[topicMaxScores.length-1].set("v.value","");  
+
+        console.log("Before " +body);
+        
+		topicObjList.pop();
+        //topicObjList.pop();
+        mainTopicList.pop();
+        mainTopicList.pop();
+        
+        //filterList.pop();
+        //filterList.pop();
+
+        
+		body.pop();
         body.pop();
-        console.log(body.pop());
-
-        mainTopicList.pop();
-        mainTopicList.pop();
         
-        //filterList.pop();
-        //filterList.pop();
-
-        topicObjList.pop();
-        topicObjList.pop();
-
-
-        component.set("v.body", body);
-        component.set("v.mainTopicList",mainTopicList);
+		component.set("v.mainTopicList",mainTopicList);
         component.set("v.topicObjList", topicObjList);
-        //component.set("v.filterList", filterList);
-        //
-        
+        component.set("v.body", body);
+
+		console.log("THIS VALUES " + topicObjList.length);
+        for(var i=0;i<topicObjList.length;i++){
+            console.log(topicObjList[i].Name.get("v.value") + " AND " + topicObjList[i].Max_Score__c.get("v.value"));
+        }
         
         helper.getTopics(component,page,recordToDisply);
     },
